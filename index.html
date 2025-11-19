@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+
+<style>
+    /* 🔴 BIẾN CHUẨN HÓA - NOTION BLUE */
+    :root {
+        --primary-accent: #0A6CFF; 
+        --secondary-accent: #f0f7ff; 
+        --bg-color: #F7F7F7; 
+        --card-bg: #FFFFFF; 
+        --text-color: #1E1E1E; 
+        --shadow: 0 4px 10px rgba(0, 0, 0, 0.08); 
+        --border-radius: 10px;
+    }
+
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        margin: 0;
+        background: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.7; 
+    }
+    
+    /* 💥 SPLASH SCREEN */
+    #splash-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--card-bg); 
+        color: var(--text-color);
+        z-index: 9999; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        opacity: 1;
+        transition: opacity 0.5s ease-out; 
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    #splash-screen.fade-out { opacity: 0; }
+
+    #splash-screen .splash-icon {
+        width: 60px; 
+        height: 60px;
+        margin-bottom: 25px; 
+        animation: spin 1.5s linear infinite; 
+        color: var(--primary-accent);
+        border: 4px solid var(--secondary-accent);
+        border-top: 4px solid var(--primary-accent);
+        border-radius: 50%;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    #splash-screen h1 {
+        font-size: clamp(24px, 5vw, 40px);
+        margin: 0;
+        font-weight: 700;
+        color: var(--text-color); 
+        max-width: 90%; 
+        padding: 0 10px;
+    }
+    
+    /* Header - Phần trên cùng */
+    .header {
+        padding: 90px 20px 50px; 
+        text-align: center;
+        background: var(--card-bg);
+        border-bottom: 1px solid #E0E0E0;
+    }
+    .header h1 {
+        font-size: clamp(32px, 7vw, 50px);
+        margin: 0 auto 18px auto; 
+        font-weight: 800;
+        color: var(--primary-accent);
+    }
+    .header p {
+        margin-top: 0;
+        font-size: clamp(18px, 2.5vw, 22px);
+        color: #555;
+    }
+
+    /* Nav Bar - Sticky */
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px; 
+        justify-content: center;
+        padding: 18px 10px; 
+        background: var(--card-bg); 
+        border-bottom: 1px solid #E0E0E0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    }
+    nav a {
+        color: var(--text-color);
+        text-decoration: none;
+        padding: 10px 18px; 
+        border-radius: 6px;
+        font-weight: 600;
+        transition: 0.2s;
+        border: 1px solid transparent;
+    }
+    nav a:hover {
+        background: var(--secondary-accent);
+        color: var(--primary-accent);
+        border-color: var(--primary-accent);
+    }
+
+
+    /* ✅ MENU 4 MỤC DẠNG CHUỖI (BENTO BOX) */
+    .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 30px;
+        max-width: 1000px;
+        margin: 50px auto; 
+        padding: 0 25px;
+    }
+
+    .menu-item {
+        background: var(--card-bg);
+        padding: 40px 30px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        cursor: pointer;
+        transition: 0.3s;
+        border: 1px solid #E0E0E0;
+        color: var(--text-color);
+        text-decoration: none;
+        
+        display: flex;
+        align-items: center; 
+        text-align: left;
+    }
+
+    .menu-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        border-color: var(--primary-accent);
+        background: var(--secondary-accent);
+    }
+
+    .menu-item img {
+        width: 45px; 
+        height: 45px;
+        margin-right: 20px; 
+        flex-shrink: 0;
+    }
+    
+    .menu-item span {
+        font-size: 1.2em; 
+        font-weight: 700;
+        color: var(--text-color); 
+    }
+
+
+    /* Giới thiệu - Dùng nền nhẹ để tách biệt (Notion style) */
+    .intro-box {
+        max-width: 1000px;
+        margin: 50px auto 100px; 
+        background: var(--card-bg); 
+        padding: 45px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        font-size: 18px; 
+        line-height: 1.8; 
+        border: 1px solid #E0E0E0;
+    }
+
+    .intro-box h2 {
+        color: var(--primary-accent);
+        margin-bottom: 20px; 
+        font-size: 28px; 
+        font-weight: 700;
+        border-bottom: 2px solid var(--secondary-accent); 
+        padding-bottom: 12px; 
+    }
+    
+    /* 📱 MEDIA QUERY CHO THIẾT BỊ DI ĐỘNG */
+    @media (max-width: 768px) {
+        .menu-grid {
+            grid-template-columns: 1fr; 
+            gap: 20px;
+            padding: 15px;
+        }
+        
+        .header {
+             padding: 40px 15px 20px;
+        }
+        .intro-box {
+            margin: 20px 15px 40px;
+            padding: 30px;
+        }
+        .menu-item {
+            padding: 30px 20px;
+        }
+    }
+
+</style>
+
+</head>
+<body>
+    
+    <div id="splash-screen">
+        <div class="splash-icon"></div> 
+        <h1>ĐIỀU CHỈNH HÀNH VI SỬ DỤNG CHATGPT TRONG HỌC TẬP</h1>
+        <p></p>
+    </div>
+
+    <div class="header">
+        <h1>ĐIỀU CHỈNH HÀNH VI SỬ DỤNG CHATGPT TRONG HỌC TẬP</h1>
+        <p>Tác giả: Võ Phú Thịnh-11A10 và Nguyễn Ngọc Vân Anh-11A7 | Mã dự án:...</p>
+    </div>
+    <nav>
+        <a href="index.html">TRANG CHỦ</a>
+        <a href="muc1.html">THÔNG TIN</a>
+        <a href="muc2.html">VAI TRÒ</a>
+        <a href="muc3.html">NHỮNG SAI LẦM</a>
+        <a href="muc4.html">GIẢI PHÁP</a>
+    </nav>
+
+    <div class="menu-grid">
+        <a href="muc1.html" class="menu-item">
+            <img src="https://cdn3.iconfinder.com/data/icons/design-thinking/64/17_project_details-64.png">
+            <span>TỔNG QUAN VỀ CHAT GPT</span>
+        </a>
+
+        <a href="muc2.html" class="menu-item">
+            <img src="https://cdn1.iconfinder.com/data/icons/personality-traits-2/128/practical_experience_role_play_implement_operation-64.png">
+            <span>VAI TRÒ CỦA CHAT GPT</span>
+        </a>
+
+        <a href="muc3.html" class="menu-item">
+            <img src="https://cdn4.iconfinder.com/data/icons/business-527/64/4_document_error_mistake_business_office_corporation_job-64.png">
+            <span>NHỮNG SAI LẦM THƯỜNG GẶP KHI SỬ DỤNG CHAT GPT</span>
+        </a>
+
+        <a href="muc4.html" class="menu-item">
+            <img src="https://cdn0.iconfinder.com/data/icons/stem-science-technology-engineering-math-education/64/provider-solution-puzzle-missing-piece-64.png">
+            <span>GIẢI PHÁP SỬ DỤNG CHAT GPT TRONG HỌC TẬP</span>
+        </a>
+
+    </div>
+    
+
+    <div class="intro-box">
+        <h2>Giới thiệu</h2>
+        <p>
+            Trang web cung cấp cái nhìn tổng quan về ChatGPT, 
+            nêu rõ vai trò của nó trong học tập, chỉ ra những sai lầm học sinh 
+            thường mắc phải và hướng dẫn các nguyên tắc sử dụng đúng hiệu quả.
+        </p>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const splash = document.getElementById('splash-screen');
+        
+        // --- LOGIC MỚI: CHỈ HIỆN 1 LẦN DÙNG sessionStorage ---
+        
+        // 1. Kiểm tra session storage. Nếu đã hiện splash, ẩn ngay lập tức và kết thúc.
+        if (sessionStorage.getItem('splashShown') === 'true') {
+            splash.style.display = 'none';
+            return; 
+        }
+
+        // 2. Nếu chưa hiện (lần đầu truy cập), chạy hiệu ứng fade-out
+        setTimeout(() => {
+            splash.classList.add('fade-out');
+            
+            // Đặt cờ vào session storage để lần sau không hiện nữa
+            sessionStorage.setItem('splashShown', 'true'); 
+            
+            setTimeout(() => {
+                splash.style.display = 'none';
+            }, 500); 
+        }, 1500); 
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NHỮNG SAI LẦM KHI SỬ DỤNG CHAT GPT</title>
+
+<style>
+    /* 🔴 BIẾN CHUẨN HÓA - NOTION BLUE */
+    :root {
+        --primary-accent: #0A6CFF; 
+        --secondary-accent: #f0f7ff; 
+        --bg-color: #F7F7F7; 
+        --card-bg: #FFFFFF; 
+        --text-color: #1E1E1E; 
+        --shadow: 0 4px 10px rgba(0, 0, 0, 0.08); 
+        --border-radius: 10px;
+    }
+
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        margin: 0;
+        background: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+
+    /* Nav Bar - Sticky */
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        padding: 15px 10px;
+        background: var(--card-bg); 
+        border-bottom: 1px solid #E0E0E0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    }
+    nav a {
+        color: var(--text-color);
+        text-decoration: none;
+        padding: 8px 15px;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: 0.2s;
+        border: 1px solid transparent;
+    }
+    nav a:hover {
+        background: var(--secondary-accent);
+        color: var(--primary-accent);
+        border-color: var(--primary-accent);
+    }
+
+    /* Khung nội dung chính (Container) */
+    .container {
+        max-width: 800px; /* Hẹp hơn để tập trung vào list dọc */
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+
+    h1 {
+        color: var(--primary-accent);
+        text-align: center;
+        margin-bottom: 40px;
+        font-weight: 800;
+        border-bottom: 2px solid var(--secondary-accent);
+        padding-bottom: 15px;
+        font-size: 32px;
+    }
+    
+    /* ✅ ACCORDION STYLE (5 MỤC DẠNG DỌC) */
+    .accordion-item {
+        margin-bottom: 15px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        border: 1px solid #E0E0E0;
+        overflow: hidden;
+    }
+    
+    .accordion-header {
+        background: var(--card-bg);
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--text-color);
+        transition: 0.3s;
+    }
+
+    .accordion-header:hover {
+        background: var(--secondary-accent);
+        color: var(--primary-accent);
+    }
+
+    .accordion-header.active {
+        background: var(--primary-accent);
+        color: white;
+    }
+
+    .accordion-icon {
+        font-size: 20px;
+        transform: rotate(0deg);
+        transition: transform 0.3s;
+    }
+    .accordion-header.active .accordion-icon {
+        transform: rotate(180deg);
+    }
+
+    .accordion-content {
+        padding: 0 20px;
+        background: var(--bg-color);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    }
+    
+    .accordion-content.open {
+        max-height: 500px; /* Giá trị lớn hơn nội dung */
+        padding: 20px;
+        border-top: 1px solid #E0E0E0;
+    }
+    
+    .accordion-content p {
+        white-space: pre-line; /* Hỗ trợ xuống dòng */
+    }
+
+</style>
+
+</head>
+<body>
+
+<nav>
+    <a href="index.html">TRANG CHỦ</a>
+    <a href="muc1.html">THÔNG TIN</a>
+    <a href="muc2.html">VAI TRÒ</a>
+    <a href="muc3.html">NHỮNG SAI LẦM</a>
+    <a href="muc4.html">GIẢI PHÁP</a>
+</nav>
+
+<div class="container">
+    <h1>NHỮNG SAI LẦM THƯỜNG GẶP KHI SỬ DỤNG CHAT GPT</h1>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            Sai lầm 1: Chưa biết đặt câu hỏi
+            <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+            <p>
+                Nhiều học sinh chưa biết cách đặt câu hỏi rõ ràng khiến ChatGPT trả lời sai ý, thiếu thông tin hoặc không đúng mong muốn. Khi câu hỏi mơ hồ, câu trả lời thường chung chung và không hỗ trợ được việc học.
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            Sai lầm 2: Học sinh phụ thuộc vào Chat GPT
+            <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+             <p>
+                Một số học sinh sử dụng ChatGPT quá mức, để công cụ làm thay toàn bộ bài tập thay vì tự suy nghĩ hoặc soạn thảo nội dung mà không tìm hiểu. Điều này làm giảm khả năng tư duy độc lập và khiến việc học không còn hiệu quả.
+            </p>
+        </div>
+    </div>
+    
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            Sai lầm 3: Không kiểm chứng thông tin
+            <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+             <p>
+                Nhiều học sinh tin tuyệt đối vào câu trả lời của ChatGPT mà không kiểm tra lại thông tin, dẫn đến sử dụng dữ liệu sai hoặc hiểu nhầm kiến thức.
+            </p>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            Sai lầm 4: Học sinh không cập nhật kiến thức cho Chat GPT
+            <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+             <p>
+                ChatGPT được huấn luyện dựa trên dữ liệu đến một thời điểm nhất định và không tự động cập nhật kiến thức mới. Nếu học sinh không chủ động bổ sung thông tin hoặc đặt câu hỏi kèm ngữ cảnh mới, công cụ có thể trả lời lỗi thời hoặc thiếu chính xác.
+            </p>
+        </div>
+    </div>
+    
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            Sai lầm 5: Đạo văn 
+            <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+             <p>
+                
+                Một số học sinh sao chép trực tiếp nội dung ChatGPT mà không trích dẫn, dẫn đến đạo văn – vi phạm nguyên tắc học tập trung thực và kìm hãm khả năng sáng tạo.
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function toggleAccordion(element) {
+        // Đóng tất cả các accordion khác
+        const allContents = document.querySelectorAll('.accordion-content');
+        const allHeaders = document.querySelectorAll('.accordion-header');
+        
+        const currentContent = element.nextElementSibling;
+
+        allHeaders.forEach(header => {
+            if (header !== element && header.classList.contains('active')) {
+                header.classList.remove('active');
+                header.nextElementSibling.classList.remove('open');
+            }
+        });
+
+        // Mở/đóng accordion hiện tại
+        element.classList.toggle('active');
+        currentContent.classList.toggle('open');
+    }
+</script>
+</body>
+</html>

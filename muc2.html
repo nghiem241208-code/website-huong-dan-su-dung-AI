@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VAI TRÒ CỦA CHAT GPT</title>
+
+<style>
+    /* 🔴 BIẾN CHUẨN HÓA - NOTION BLUE */
+    :root {
+        --primary-accent: #0A6CFF; 
+        --secondary-accent: #f0f7ff; 
+        --bg-color: #F7F7F7; 
+        --card-bg: #FFFFFF; 
+        --text-color: #1E1E1E; 
+        --shadow: 0 4px 10px rgba(0, 0, 0, 0.08); 
+        --border-radius: 10px;
+    }
+
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        margin: 0;
+        background: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+
+    /* Nav Bar - Sticky */
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        padding: 15px 10px;
+        background: var(--card-bg); 
+        border-bottom: 1px solid #E0E0E0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    }
+    nav a {
+        color: var(--text-color);
+        text-decoration: none;
+        padding: 8px 15px;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: 0.2s;
+        border: 1px solid transparent;
+    }
+    nav a:hover {
+        background: var(--secondary-accent);
+        color: var(--primary-accent);
+        border-color: var(--primary-accent);
+    }
+
+    /* Khung nội dung chính (Container) */
+    .container {
+        max-width: 1000px; 
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+
+    h1 {
+        color: var(--primary-accent);
+        text-align: center;
+        margin-bottom: 40px;
+        font-weight: 800;
+        border-bottom: 2px solid var(--secondary-accent);
+        padding-bottom: 15px;
+        font-size: 32px;
+    }
+    
+    /* ✅ LAYOUT 4 Ô NỘI DUNG (2X2 DESKTOP, 1X4 MOBILE) */
+    .role-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Desktop: 2 cột */
+        gap: 30px;
+    }
+    
+    .role-card {
+        background: var(--card-bg);
+        padding: 30px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        border: 1px solid #E0E0E0;
+        transition: 0.3s;
+    }
+    
+    .role-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        border-color: var(--primary-accent);
+    }
+
+    .role-card h2 {
+        color: var(--primary-accent);
+        font-size: 24px;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 15px;
+        border-bottom: 2px solid var(--secondary-accent);
+        padding-bottom: 10px;
+    }
+    
+    .role-card p {
+        margin-bottom: 15px;
+        white-space: pre-line; /* RẤT QUAN TRỌNG: Giữ định dạng xuống dòng */
+    }
+
+    /* 📱 MEDIA QUERY CHO THIẾT BỊ DI ĐỘNG */
+    @media (max-width: 768px) {
+        .role-grid {
+            grid-template-columns: 1fr; /* Mobile: 1 cột dọc */
+            gap: 20px;
+        }
+    }
+</style>
+
+</head>
+<body>
+
+<nav>
+    <a href="index.html">TRANG CHỦ</a>
+    <a href="muc1.html">THÔNG TIN</a>
+    <a href="muc2.html">VAI TRÒ</a>
+    <a href="muc3.html">NHỮNG SAI LẦM</a>
+    <a href="muc4.html">GIẢI PHÁP</a>
+</nav>
+
+<div class="container">
+    <h1>VAI TRÒ CỦA CHAT GPT TRONG HỌC TẬP</h1>
+
+    <div class="role-grid">
+        
+        <div class="role-card">
+            <h2>Năng lực tự chủ</h2>
+            <p>
+                ChatGPT khuyến khích học sinh tự đặt vấn đề, tìm nguồn, tự đánh giá hiểu biết và lên kế hoạch học tập cá nhân.
+            </p>
+        </div>
+
+        <div class="role-card">
+            <h2>Năng lực giải quyết vấn đề</h2>
+            <p>
+                ChatGPT cung cấp khung tư duy, phương pháp tiếp cận đa hướng và bước thực hiện để phân tích, thử nghiệm và lựa chọn giải pháp.
+            </p>
+        </div>
+
+        <div class="role-card">
+            <h2>Năng lực ngôn ngữ</h2>
+            <p>
+                : ChatGPT hỗ trợ phát triển kỹ năng đọc, viết, dịch và diễn đạt (cả tiếng Việt và ngoại ngữ) thông qua tương tác, sửa lỗi, gợi ý từ vựng và cấu trúc.
+            </p>
+        </div>
+
+        <div class="role-card">
+            <h2>Năng lực giao tiếp</h2>
+            <p>
+                hatGPT giúp rèn kỹ năng đặt câu hỏi, trình bày ý tưởng mạch lạc, xây dựng luận điểm và phản hồi xây dựng — cả bằng văn viết lẫn lời nói.
+            </p>
+        </div>
+        <div class="role-card">
+            <h2>Năng lực công nghệ thông tin</h2>
+            <p>
+                ChatGPT giúp học sinh tiếp cận kiến thức Tin học và lập trình dễ dàng hơn, đặc biệt là trong việc đọc hiểu mã, sửa lỗi, viết thuật toán và luyện tư duy lập trình Python.
+            </p>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
