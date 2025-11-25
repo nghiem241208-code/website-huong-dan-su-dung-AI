@@ -56,7 +56,7 @@
 
     /* Khung nội dung chính (Container) */
     .container {
-        max-width: 600px; /* Hẹp hơn để tập trung vào các nút bấm */
+        max-width: 600px; 
         margin: 40px auto;
         padding: 0 20px;
     }
@@ -71,11 +71,12 @@
         font-size: 32px;
     }
     
-    /* ✅ LAYOUT 3 Ô LINK (Dạng Dọc) */
+    /* ✅ LAYOUT 3 Ô LINK (Kích hoạt) */
     .link-list {
         display: flex;
         flex-direction: column;
         gap: 20px;
+        margin-bottom: 40px;
     }
     
     .link-card {
@@ -91,6 +92,7 @@
         align-items: center;
         font-size: 18px;
         font-weight: 700;
+        cursor: pointer;
     }
     
     .link-card:hover {
@@ -106,6 +108,118 @@
         margin-right: 15px;
         line-height: 1;
     }
+
+    /* === KHU VỰC HIỂN THỊ NỘI DUNG TÙY CHỈNH (EXPANDED CONTENT) === */
+    .expanded-area {
+        max-width: 800px; /* Kích thước tối đa cho nội dung mở rộng */
+        margin: 0 auto 40px auto; 
+        padding: 20px 0;
+        text-align: center;
+        border-top: 1px solid #E0E0E0;
+    }
+    
+    .expanded-area h2 {
+        color: var(--primary-accent);
+        margin-bottom: 10px;
+    }
+    
+    /* 1️⃣ LAYOUT 1 ẢNH NGANG VỚI NÚT LINK (Mục 1 & 2) */
+    .one-image-layout {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-top: 30px;
+    }
+    
+    .one-image-layout .main-button {
+        flex: 1 1 200px; 
+        max-width: 350px;
+    }
+
+    .one-image-layout .image-card {
+        flex: 1 1 200px; 
+        max-width: 400px; /* Điều chỉnh kích thước ảnh ngang */
+        height: 180px; /* Điều chỉnh chiều cao khung ảnh ngang */
+        overflow: hidden;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        border: 1px solid #E0E0E0;
+        transition: 0.3s;
+    }
+    
+    .one-image-layout .image-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Đảm bảo ảnh lấp đầy khung */
+        display: block;
+    }
+
+    /* 2️⃣ LAYOUT 4 ẢNH (Mục 3) */
+    .four-image-layout {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 20px;
+        margin-top: 30px;
+        max-width: 750px; /* Điều chỉnh max-width cho layout 4 ảnh */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .four-image-layout .image-card {
+        background: var(--card-bg);
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        border: 1px solid #E0E0E0;
+        transition: 0.3s;
+    }
+    
+    .four-image-layout .image-card img {
+        width: 100%;
+        height: 150px; /* Giữ nguyên chiều cao cho ảnh thumbnail */
+        object-fit: cover;
+        display: block;
+    }
+
+    .four-image-layout .main-button {
+        grid-area: 1 / 2 / 3 / 3; 
+        align-self: center;
+    }
+    .four-image-layout .image-card:nth-child(1) { grid-area: 1 / 1 / 2 / 2; }
+    .four-image-layout .image-card:nth-child(2) { grid-area: 1 / 3 / 2 / 4; }
+    .four-image-layout .image-card:nth-child(4) { grid-area: 2 / 1 / 3 / 2; }
+    .four-image-layout .image-card:nth-child(5) { grid-area: 2 / 3 / 3 / 4; }
+
+    /* Nút Chung Cho Cả 3 Layout */
+    .main-button a {
+        display: block;
+        padding: 20px 30px;
+        background: var(--primary-accent);
+        color: var(--card-bg);
+        text-decoration: none;
+        border-radius: var(--border-radius);
+        font-weight: 700;
+        font-size: 20px;
+        transition: 0.3s;
+        box-shadow: var(--shadow);
+    }
+    
+    .main-button a:hover {
+        background: #0056e6;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Hiệu ứng hover cho hình ảnh */
+    .image-card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        border-color: var(--primary-accent);
+    }
+
 
 </style>
 
@@ -125,25 +239,132 @@
 
     <div class="link-list">
         
-        <a href="https://www.canva.com/design/DAG4XmXG4Qg/FC5JPrrussKJ9kWyZ_IcmA/edit?utm_content=DAG4XmXG4Qg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" class="link-card">
+        <a id="toggle-content-1" class="link-card">
             <span class="link-icon">📚</span>
             Cẩm nang Chat GPT người bạn học thông minh
         </a>
 
-        <a href="https://www.facebook.com/share/g/1MEJdLh4dw/?mibextid=wwXIfr" target="_blank" class="link-card">
+        <a id="toggle-content-2" class="link-card">
             <span class="link-icon">💬</span>
             Tham gia Góc thảo luận
         </a>
 
-        <a href="https://nghiem241208-code.github.io/Study------web/" target="_blank" class="link-card">
+        <a id="toggle-content-3" class="link-card"> 
             <span class="link-icon">💡</span>
             Góc tự học (Website hỗ trợ)
         </a>
 
     </div>
-    
-    
-
 </div>
+
+<div id="expanded-content-1" class="expanded-area" style="display: none;">
+    <h2>CẨM NANG CHAT GPT</h2>
+    <p style="font-size: 1.1em; color: #555;">Truy cập cẩm nang hướng dẫn sử dụng ChatGPT hiệu quả.</p>
+    
+    <div class="one-image-layout">
+        
+        <div class="main-button">
+            <a href="https://online.fliphtml5.com/gkbeg/daaw/" target="_blank">
+                <span style="margin-right: 10px;">📖</span> 
+                ĐỌC CẨM NANG NGAY
+            </a>
+        </div>
+        
+        <div class="image-card">
+            <img src="https://i.postimg.cc/fR6hRq8t/Screenshot-2025-11-25-at-13-47-42.png" alt="Minh họa Cẩm nang">
+        </div>
+    </div>
+</div>
+
+<div id="expanded-content-2" class="expanded-area" style="display: none;">
+    <h2>GÓC THẢO LUẬN</h2>
+    <p style="font-size: 1.1em; color: #555;">Tham gia cộng đồng và chia sẻ kinh nghiệm sử dụng công cụ AI.</p>
+    
+    <div class="one-image-layout">
+        
+        <div class="main-button">
+            <a href="https://www.facebook.com/share/g/1MEJdLh4dw/?mibextid=wwXIfr" target="_blank">
+                <span style="margin-right: 10px;">👥</span> 
+                THAM GIA GÓC THẢO LUẬN
+            </a>
+        </div>
+        
+        <div class="image-card">
+            <img src="https://i.postimg.cc/nV6rNTtR/585934968_122167099676749237_765603620934074649_n.jpg" alt="Minh họa Góc thảo luận">
+        </div>
+    </div>
+</div>
+
+<div id="expanded-content-3" class="expanded-area" style="display: none;">
+    <h2>GÓC TỰ HỌC </h2>
+    <p style="font-size: 1.1em; color: #555;"></p>
+
+    <div class="four-image-layout">
+        
+        <div class="main-button">
+            <a href="https://nghiem241208-code.github.io/goc_hoc_tap_/" target="_blank">
+                <span style="margin-right: 10px;">🚀</span> 
+                TRUY CẬP WEBSITE TỰ HỌC
+            </a>
+        </div>
+        
+        <div class="image-card">
+            <img src="https://i.postimg.cc/tJpN9bKw/Screenshot_2025_11_25_at_12_38_53.png" alt="Minh họa 1">
+        </div>
+
+        <div class="image-card">
+            <img src="https://i.postimg.cc/3JDx3GBJ/Screenshot_2025_11_25_at_12_39_31.png" alt="Minh họa 2">
+        </div>
+
+        <div class="image-card">
+            <img src="https://i.postimg.cc/qgf0NmGY/Screenshot_2025_11_25_at_12_44_20.png" alt="Minh họa 3">
+        </div>
+
+        <div class="image-card">
+            <img src="https://i.postimg.cc/wBW11pRn/Screenshot_2025_11_25_at_12_50_09.png" alt="Minh họa 4">
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleButtons = {
+            'toggle-content-1': 'expanded-content-1',
+            'toggle-content-2': 'expanded-content-2',
+            'toggle-content-3': 'expanded-content-3'
+        };
+
+        const contentAreas = document.querySelectorAll('.expanded-area');
+
+        function toggleContent(buttonId, contentId) {
+            const content = document.getElementById(contentId);
+            
+            // Ẩn tất cả các khu vực nội dung khác
+            contentAreas.forEach(area => {
+                if (area.id !== contentId) {
+                    area.style.display = 'none';
+                }
+            });
+
+            // Chuyển đổi trạng thái hiển thị của khu vực hiện tại
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                // Cuộn xuống khu vực vừa được hiển thị
+                content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                content.style.display = 'none';
+            }
+        }
+
+        // Gán sự kiện cho từng nút
+        for (const [buttonId, contentId] of Object.entries(toggleButtons)) {
+            document.getElementById(buttonId).addEventListener('click', function(event) {
+                event.preventDefault(); 
+                toggleContent(buttonId, contentId);
+            });
+        }
+    });
+</script>
+
 </body>
 </html>
