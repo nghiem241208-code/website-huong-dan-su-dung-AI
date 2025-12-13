@@ -1,136 +1,193 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VAI TRÒ CỦA CHAT GPT</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Trang thông tin về việc sử dụng AI đúng cách trong học tập - vai trò, sai lầm và giải pháp.">
+    <title>VAI TRÒ CỦA CHAT GPT</title>
 
 <style>
-    /* 🔴 BIẾN CHUẨN HÓA - NOTION BLUE */
-    :root {
-        --primary-accent: #0A6CFF; 
-        --secondary-accent: #f0f7ff; 
-        --bg-color: #F7F7F7; 
-        --card-bg: #FFFFFF; 
-        --text-color: #1E1E1E; 
-        --shadow: 0 4px 10px rgba(0, 0, 0, 0.08); 
-        --border-radius: 10px;
+    /* ==================================== */
+    /*  STYLE B: AI MODERN (NEON GRADIENT)  */
+    /* ==================================== */
+    :root{
+        
+        --bg-dark: #0d1731 ;
+        --bg-card: #0d1731 ;
+        --neon-blue:#4dc3ff;
+        --neon-purple:#8b5bff;
+        --text-light:#e9ecf8;
+        --text-dim:#b9c0d4;
+        --radius:18px;
+        --shadow-neon:0 0 18px rgba(77,195,255,0.35);
+        --gradient-hero:linear-gradient(135deg, #4dc3ff, #8a5bff);
+        --gradient-card:linear-gradient(135deg, #10304a 0%, #1d0f3b 100%);
+        --nav-width: 300px; /* Độ rộng menu khi mở */
     }
 
-    body {
-        font-family: 'Segoe UI', Arial, sans-serif;
-        margin: 0;
-        background: var(--bg-color);
-        color: var(--text-color);
-        line-height: 1.6;
+    body{
+        margin:0;
+        font-family:"Poppins", sans-serif;
+        background:var(--bg-dark);
+        color:var(--text-light);
+        line-height:1.7;
     }
 
-    /* Nav Bar - Sticky */
-    nav {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        justify-content: center;
-        padding: 15px 10px;
-        background: var(--card-bg); 
-        border-bottom: 1px solid #E0E0E0;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    /* === MENU TOGGLE CSS === */
+    .header-container{
+        position:sticky;top:0;z-index:1000;padding:10px 20px;
+        backdrop-filter:blur(12px);
+        background:rgba(10,10,20,0.7);
+        border-bottom:1px solid rgba(255,255,255,0.05);
+        display:flex;justify-content:flex-end;align-items:center;
     }
-    nav a {
-        color: var(--text-color);
-        text-decoration: none;
-        padding: 8px 15px;
-        border-radius: 6px;
-        font-weight: 600;
-        transition: 0.2s;
-        border: 1px solid transparent;
+    .menu-toggle{
+        background:none;border:none;
+        color:var(--neon-blue);
+        font-size:30px;cursor:pointer;padding:10px;
+        transition:0.3s;font-weight:100;line-height:1;
     }
-    nav a:hover {
-        background: var(--secondary-accent);
-        color: var(--primary-accent);
-        border-color: var(--primary-accent);
+    .menu-toggle:hover{color:var(--neon-purple);text-shadow:0 0 15px var(--neon-blue);}
+    
+    nav{
+        position:fixed;top:0;right:0;width:100%;height:100%;
+        max-width:var(--nav-width);
+        background:rgba(6,8,13,0.95);
+        transform:translateX(100%);
+        transition:transform 0.3s ease-in-out;
+        display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;
+        padding-top:60px;z-index:9999;
     }
-
-    /* Khung nội dung chính (Container) */
-    .container {
-        max-width: 1000px; 
-        margin: 40px auto;
-        padding: 0 20px;
+    nav.open{transform:translateX(0);}
+    
+    nav a{
+        width:100%;color:var(--text-dim);
+        text-decoration:none;font-weight:500;
+        padding:15px 30px;
+        border-bottom:1px solid rgba(255,255,255,0.05);
+        transition:0.25s;
     }
-
-    h1 {
-        color: var(--primary-accent);
-        text-align: center;
-        margin-bottom: 40px;
-        font-weight: 800;
-        border-bottom: 2px solid var(--secondary-accent);
-        padding-bottom: 15px;
-        font-size: 32px;
+    nav a:hover{
+        color:var(--neon-blue);
+        text-shadow:0 0 10px var(--neon-blue);
+        background:rgba(77,195,255,0.05);
+    }
+    nav a.active{
+        color:var(--neon-blue);
+        font-weight:600;
+        text-shadow:0 0 8px var(--neon-blue);
+    }
+    .close-btn{
+        position:absolute;top:15px;right:25px;
+        color:var(--neon-blue);
+        font-size:35px;font-weight:100;line-height:1;
+    }
+    /* === END MENU TOGGLE CSS === */
+    
+    .hero{
+        text-align:center;
+        padding:80px 20px 40px;
+    }
+    .hero h1{
+        font-size:52px;
+        font-weight:800;
+        background:var(--gradient-hero);
+        -webkit-background-clip:text;
+        -webkit-text-fill-color:transparent;
+        margin-bottom:18px;
+    }
+    .hero p{
+        color:var(--text-dim);
+        max-width:900px;
+        margin:auto;
+        font-size:18px;
+        line-height:1.7;
+    }
+    .container{
+        max-width:1000px;
+        margin:0 auto 80px;
+        padding:0 20px;
     }
     
-    /* ✅ LAYOUT 4 Ô NỘI DUNG (2X2 DESKTOP, 1X4 MOBILE) */
-    .role-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Desktop: 2 cột */
-        gap: 30px;
+    /* === GRID CÁC VAI TRÒ (Role Grid) === */
+    .role-grid{
+        display:grid;
+        /* Tạo lưới 2 cột trên màn hình lớn, 1 cột trên màn hình nhỏ */
+        grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+        gap:25px;
+        margin-top:40px;
     }
-    
-    .role-card {
-        background: var(--card-bg);
-        padding: 30px;
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow);
-        border: 1px solid #E0E0E0;
-        transition: 0.3s;
+    .role-card{
+        background:var(--gradient-card);
+        padding:30px;
+        border-radius:var(--radius);
+        box-shadow:var(--shadow-neon);
+        border:1px solid rgba(255,255,255,0.08);
+        transition:0.3s;
     }
-    
-    .role-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        border-color: var(--primary-accent);
+    .role-card:hover{
+        transform:translateY(-3px);
+        box-shadow:0 0 25px rgba(77,195,255,0.5);
+    }
+    .role-card h2{
+        color:var(--neon-purple);
+        font-size:22px;
+        margin-top:0;
+        margin-bottom:15px;
+        /* Thêm icon nổi bật */
+        border-bottom:2px solid rgba(139,91,255,0.15);
+        padding-bottom:10px;
+        display:flex;
+        align-items:center;
+    }
+    .role-card h2 span {
+        font-size: 1.5em;
+        margin-right: 10px;
+        line-height: 1;
+        color: var(--neon-blue);
     }
 
-    .role-card h2 {
-        color: var(--primary-accent);
-        font-size: 24px;
-        font-weight: 700;
-        margin-top: 0;
-        margin-bottom: 15px;
-        border-bottom: 2px solid var(--secondary-accent);
-        padding-bottom: 10px;
-    }
-    
-    .role-card p {
-        margin-bottom: 15px;
-        white-space: pre-line; /* RẤT QUAN TRỌNG: Giữ định dạng xuống dòng */
+    .role-card p{
+        color:var(--text-dim);
+        font-size:16px;
     }
 
-    /* 📱 MEDIA QUERY CHO THIẾT BỊ DI ĐỘNG */
-    @media (max-width: 768px) {
-        .role-grid {
-            grid-template-columns: 1fr; /* Mobile: 1 cột dọc */
-            gap: 20px;
+    footer{
+        margin-top:80px;
+        padding:30px;
+        text-align:center;
+        font-size:14px;
+        color:var(--text-dim);
+        border-top:1px solid rgba(255,255,255,0.05);
+    }
+    
+    @media (max-width: 768px){
+        .hero h1{
+            font-size:40px;
         }
     }
 </style>
-
 </head>
 <body>
 
-<nav>
+<div class="header-container">
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+</div>
+
+<nav id="main-nav">
+    <button class="menu-toggle close-btn" onclick="toggleMenu()">✕</button>
     <a href="index.html">TRANG CHỦ</a>
     <a href="muc1.html">THÔNG TIN</a>
-    <a href="muc2.html">VAI TRÒ</a>
+    <a href="muc2.html" class="active">VAI TRÒ</a>
     <a href="muc3.html">NHỮNG SAI LẦM</a>
     <a href="muc4.html">GIẢI PHÁP</a>
 </nav>
 
-<div class="container">
-    <h1>VAI TRÒ CỦA CHAT GPT TRONG HỌC TẬP</h1>
+<section class="hero">
+    <h1>VAI TRÒ CỦA CHAT GPT </h1>
+    <p></p>
+</section>
 
+<div class="container">
     <div class="role-grid">
         
         <div class="role-card">
@@ -169,5 +226,14 @@
 
     </div>
 </div>
+
+<footer></footer>
+
+<script>
+    function toggleMenu() {
+        const nav = document.getElementById('main-nav');
+        nav.classList.toggle('open');
+    }
+</script>
 </body>
 </html>
