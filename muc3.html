@@ -1,87 +1,167 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NHỮNG SAI LẦM KHI SỬ DỤNG CHAT GPT</title>
-
+   <head>
+    <meta charset="UTF-8">
+   <meta name="description" content="Trang thông tin về việc sử dụng AI đúng cách trong học tập - vai trò, sai lầm và giải pháp.">
+    <title>NHỮNG SAI LẦM KHI SỬ DỤNG CHAT GPT</title>
 <style>
-    /* 🔴 BIẾN CHUẨN HÓA - NOTION BLUE */
+    /* ==================================== */
+    /*  STYLE B: AI MODERN (NEON GRADIENT)  */
+    /* ==================================== */
     :root {
-        --primary-accent: #0A6CFF; 
-        --secondary-accent: #f0f7ff; 
-        --bg-color: #F7F7F7; 
-        --card-bg: #FFFFFF; 
-        --text-color: #1E1E1E; 
-        --shadow: 0 4px 10px rgba(0, 0, 0, 0.08); 
-        --border-radius: 10px;
+        --nav-width: 300px;
+        --bg-dark: #0d1731 ;
+        --bg-card: #0d1731 ;
+        --neon-blue: #4dc3ff;
+        --neon-purple: #8b5bff;
+        --text-light: #e9ecf8;
+        --text-dim: #b9c0d4;
+        --radius: 12px;
+        --shadow-neon: 0 0 15px rgba(77,195,255,0.25);
+        --gradient-hero: linear-gradient(135deg, #4dc3ff, #8a5bff);
+        --gradient-card: linear-gradient(135deg, #10304a 0%, #1d0f3b 100%);
+        --accordion-active-bg: #10304a; /* Nền xanh đậm hơn khi active */
     }
 
     body {
-        font-family: 'Segoe UI', Arial, sans-serif;
+        font-family: "Poppins", sans-serif;
         margin: 0;
-        background: var(--bg-color);
-        color: var(--text-color);
-        line-height: 1.6;
+        background: var(--bg-dark);
+        color: var(--text-light);
+        line-height: 1.7;
     }
 
-    /* Nav Bar - Sticky */
-    nav {
+    /* === MENU TOGGLE CSS === */
+    .header-container{
+        position:sticky;top:0;z-index:1000;padding:10px 20px;
+        backdrop-filter:blur(12px);
+        background:rgba(10,10,20,0.7);
+        border-bottom:1px solid rgba(255,255,255,0.05);
+        display:flex;justify-content:flex-end;align-items:center;
+    }
+    .menu-toggle{
+        background:none;border:none;
+        color:var(--neon-blue);
+        font-size:30px;cursor:pointer;padding:10px;
+        transition:0.3s;font-weight:100;line-height:1;
+    }
+    .menu-toggle:hover{color:var(--neon-purple);text-shadow:0 0 15px var(--neon-blue);}
+    nav{
+        position:fixed;top:0;right:0;width:100%;height:100%;
+        max-width:var(--nav-width);
+        background:rgba(6,8,13,0.95);
+        transform:translateX(100%);
+        transition:transform 0.3s ease-in-out;
+        display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;
+        padding-top:60px;z-index:9999;
+    }
+    nav.open{transform:translateX(0);}
+    nav a{
+        width:100%;color:var(--text-dim);
+        text-decoration:none;font-weight:500;
+        padding:15px 30px;
+        border-bottom:1px solid rgba(255,255,255,0.05);
+        transition:0.25s;
+    }
+    nav a:hover{
+        color:var(--neon-blue);
+        text-shadow:0 0 10px var(--neon-blue);
+        background:rgba(77,195,255,0.05);
+    }
+    nav a.active{
+        color:var(--neon-blue);
+        font-weight:600;
+        text-shadow:0 0 8px var(--neon-blue);
+    }
+    .close-btn{
+        position:absolute;top:15px;right:25px;
+        color:var(--neon-blue);
+        font-size:35px;font-weight:100;line-height:1;
+    }
+    /* === END MENU TOGGLE CSS === */
+    
+    .hero{
+        text-align:center;
+        padding:80px 20px 40px;
+    }
+    .hero h1{
+        font-size:52px;
+        font-weight:800;
+        background:var(--gradient-hero);
+        -webkit-background-clip:text;
+        -webkit-text-fill-color:transparent;
+        margin-bottom:18px;
+    }
+    .hero p{
+        color:var(--text-dim);
+        max-width:900px;
+        margin:auto;
+        font-size:18px;
+        line-height:1.7;
+    }
+    .container{
+        max-width:1100px; 
+        margin:0 auto 80px;
+        padding:0 20px;
+    }
+    
+    /* 🛠️ CẤU TRÚC HAI CỘT SONG SONG */
+    .two-column-layout{
+        display:flex;
+        gap:30px; 
+        align-items:flex-start;
+    }
+    .content-left {
+        flex: 3; 
+    }
+    .images-right {
+        flex: 2; 
         display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        justify-content: center;
-        padding: 15px 10px;
-        background: var(--card-bg); 
-        border-bottom: 1px solid #E0E0E0;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-    }
-    nav a {
-        color: var(--text-color);
-        text-decoration: none;
-        padding: 8px 15px;
-        border-radius: 6px;
-        font-weight: 600;
-        transition: 0.2s;
-        border: 1px solid transparent;
-    }
-    nav a:hover {
-        background: var(--secondary-accent);
-        color: var(--primary-accent);
-        border-color: var(--primary-accent);
+        flex-direction: column; 
+        gap: 20px;
+        position: sticky; 
+        top: 80px; 
     }
 
     /* Khung nội dung chính (Container) */
     .container {
-        max-width: 800px; /* Hẹp hơn để tập trung vào list dọc */
+        max-width: 800px; 
         margin: 40px auto;
         padding: 0 20px;
     }
 
     h1 {
-        color: var(--primary-accent);
+        /* Đồng bộ tiêu đề */
+        font-size: 42px;
+        font-weight: 800;
+        background: var(--gradient-hero);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         text-align: center;
         margin-bottom: 40px;
-        font-weight: 800;
-        border-bottom: 2px solid var(--secondary-accent);
+        border-bottom: 2px solid rgba(77, 195, 255, 0.15);
         padding-bottom: 15px;
-        font-size: 32px;
     }
     
     /* ✅ ACCORDION STYLE (5 MỤC DẠNG DỌC) */
     .accordion-item {
         margin-bottom: 15px;
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow);
-        border: 1px solid #E0E0E0;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-neon);
+        /* Đồng bộ border và nền */
+        border: 1px solid rgba(255, 255, 255, 0.08); 
+        background: var(--bg-card);
         overflow: hidden;
+        transition: box-shadow 0.3s;
+    }
+
+    .accordion-item:hover {
+        box-shadow: 0 0 20px rgba(77,195,255,0.4);
     }
     
     .accordion-header {
-        background: var(--card-bg);
+        background: var(--bg-card); /* Nền mặc định của card */
         padding: 20px;
         display: flex;
         justify-content: space-between;
@@ -89,62 +169,80 @@
         cursor: pointer;
         font-size: 18px;
         font-weight: 700;
-        color: var(--text-color);
+        color: var(--text-light);
         transition: 0.3s;
+        border-bottom: 1px solid transparent;
     }
 
     .accordion-header:hover {
-        background: var(--secondary-accent);
-        color: var(--primary-accent);
+        background: var(--accordion-active-bg);
+        color: var(--neon-blue);
     }
 
     .accordion-header.active {
-        background: var(--primary-accent);
-        color: white;
+        background: var(--accordion-active-bg);
+        color: var(--neon-blue);
+        border-bottom: 1px solid rgba(77, 195, 255, 0.3);
     }
 
     .accordion-icon {
         font-size: 20px;
         transform: rotate(0deg);
         transition: transform 0.3s;
+        color: var(--neon-purple); /* Màu neon cho icon */
     }
     .accordion-header.active .accordion-icon {
         transform: rotate(180deg);
+        color: var(--neon-blue);
     }
 
     .accordion-content {
         padding: 0 20px;
-        background: var(--bg-color);
+        background: var(--bg-dark); /* Nền đậm hơn cho phần nội dung mở ra */
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease-out, padding 0.3s ease-out;
     }
     
     .accordion-content.open {
-        max-height: 500px; /* Giá trị lớn hơn nội dung */
+        max-height: 500px; 
         padding: 20px;
-        border-top: 1px solid #E0E0E0;
+        border-top: 1px solid rgba(255, 255, 255, 0.05); /* Border nhẹ giữa header và content */
     }
     
     .accordion-content p {
-        white-space: pre-line; /* Hỗ trợ xuống dòng */
+        color: var(--text-dim); /* Đồng bộ màu chữ nội dung */
+        white-space: pre-line;
     }
 
+    /* 📱 MEDIA QUERY CHO THIẾT BỊ DI ĐỘNG */
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 32px;
+        }
+    }
 </style>
 
 </head>
 <body>
 
-<nav>
-    <a href="index.html">TRANG CHỦ</a>
-    <a href="muc1.html">THÔNG TIN</a>
-    <a href="muc2.html">VAI TRÒ</a>
-    <a href="muc3.html">NHỮNG SAI LẦM</a>
-    <a href="muc4.html">GIẢI PHÁP</a>
-</nav>
+    <div class="header-container">
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+    
+    <nav id="main-nav">
+        <button class="menu-toggle close-btn" onclick="toggleMenu()">✕</button>
+        <a href="index.html">TRANG CHỦ</a>
+        <a href="muc1.html">THÔNG TIN</a>
+        <a href="muc2.html">VAI TRÒ</a>
+        <a href="muc3.html" class="active">NHỮNG SAI LẦM</a>
+        <a href="muc4.html">GIẢI PHÁP</a>
+    </nav>
+    
+    
 
 <div class="container">
-    <h1>NHỮNG SAI LẦM THƯỜNG GẶP KHI SỬ DỤNG CHAT GPT</h1>
+    <h1>NHỮNG SAI LẦM THƯỜNG GẶP </h1>
 
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
@@ -210,24 +308,41 @@
 </div>
 
 <script>
+    function toggleMenu() {
+        const nav = document.getElementById('main-nav');
+        nav.classList.toggle('open');
+    }
+
     function toggleAccordion(element) {
-        // Đóng tất cả các accordion khác
         const allContents = document.querySelectorAll('.accordion-content');
         const allHeaders = document.querySelectorAll('.accordion-header');
         
         const currentContent = element.nextElementSibling;
+        const currentIcon = element.querySelector('.accordion-icon');
 
+        // Đóng tất cả các accordion khác (trừ accordion hiện tại)
         allHeaders.forEach(header => {
             if (header !== element && header.classList.contains('active')) {
                 header.classList.remove('active');
                 header.nextElementSibling.classList.remove('open');
+                header.nextElementSibling.style.maxHeight = null; // Đặt lại chiều cao
             }
         });
 
         // Mở/đóng accordion hiện tại
         element.classList.toggle('active');
-        currentContent.classList.toggle('open');
+
+        if (currentContent.style.maxHeight) {
+            // Đang mở, đóng lại
+            currentContent.style.maxHeight = null;
+            currentContent.classList.remove('open');
+        } else {
+            // Đang đóng, mở ra
+            currentContent.style.maxHeight = currentContent.scrollHeight + "px";
+            currentContent.classList.add('open');
+        }
     }
 </script>
+
 </body>
 </html>
