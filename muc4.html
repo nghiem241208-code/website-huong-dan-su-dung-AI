@@ -1,57 +1,128 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GIẢI PHÁP SỬ DỤNG CHAT GPT</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Trang thông tin về việc sử dụng AI đúng cách trong học tập - vai trò, sai lầm và giải pháp.">
+    <title>GIẢI PHÁP SỬ DỤNG CHAT GPT</title>
 
 <style>
-    /* 🔴 BIẾN CHUẨN HÓA - NOTION BLUE */
+    /* ==================================== */
+    /*  STYLE B: AI MODERN (NEON GRADIENT)  */
+    /* ==================================== */
     :root {
-        --primary-accent: #0A6CFF; 
-        --secondary-accent: #f0f7ff; 
-        --bg-color: #F7F7F7; 
-        --card-bg: #FFFFFF; 
-        --text-color: #1E1E1E; 
-        --shadow: 0 4px 10px rgba(0, 0, 0, 0.08); 
-        --border-radius: 10px;
+        --nav-width: 300px;
+        --bg-dark: #0d1731 ;
+        --bg-card: #0d1731 ;
+        --neon-blue: #4dc3ff;
+        --neon-purple: #8b5bff;
+        --text-light: #e9ecf8;
+        --text-dim: #b9c0d4;
+        --radius: 12px;
+        --shadow-neon: 0 0 15px rgba(77,195,255,0.25);
+        --gradient-hero: linear-gradient(135deg, #4dc3ff, #8a5bff);
+        --gradient-card: linear-gradient(135deg, #10304a 0%, #1d0f3b 100%);
+        --primary-button: linear-gradient(135deg, #4dc3ff, #8a5bff); /* Nút chính dùng gradient */
     }
 
     body {
-        font-family: 'Segoe UI', Arial, sans-serif;
+        font-family: "Poppins", sans-serif;
         margin: 0;
-        background: var(--bg-color);
-        color: var(--text-color);
-        line-height: 1.6;
+        background: var(--bg-dark);
+        color: var(--text-light);
+        line-height: 1.7;
     }
 
-    /* Nav Bar - Sticky */
-    nav {
+    
+    /* === MENU TOGGLE CSS === */
+    .header-container{
+        position:sticky;top:0;z-index:1000;padding:10px 20px;
+        backdrop-filter:blur(12px);
+        background:rgba(10,10,20,0.7);
+        border-bottom:1px solid rgba(255,255,255,0.05);
+        display:flex;justify-content:flex-end;align-items:center;
+    }
+    .menu-toggle{
+        background:none;border:none;
+        color:var(--neon-blue);
+        font-size:30px;cursor:pointer;padding:10px;
+        transition:0.3s;font-weight:100;line-height:1;
+    }
+    .menu-toggle:hover{color:var(--neon-purple);text-shadow:0 0 15px var(--neon-blue);}
+    nav{
+        position:fixed;top:0;right:0;width:100%;height:100%;
+        max-width:var(--nav-width);
+        background:rgba(6,8,13,0.95);
+        transform:translateX(100%);
+        transition:transform 0.3s ease-in-out;
+        display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;
+        padding-top:60px;z-index:9999;
+    }
+    nav.open{transform:translateX(0);}
+    nav a{
+        width:100%;color:var(--text-dim);
+        text-decoration:none;font-weight:500;
+        padding:15px 30px;
+        border-bottom:1px solid rgba(255,255,255,0.05);
+        transition:0.25s;
+    }
+    nav a:hover{
+        color:var(--neon-blue);
+        text-shadow:0 0 10px var(--neon-blue);
+        background:rgba(77,195,255,0.05);
+    }
+    nav a.active{
+        color:var(--neon-blue);
+        font-weight:600;
+        text-shadow:0 0 8px var(--neon-blue);
+    }
+    .close-btn{
+        position:absolute;top:15px;right:25px;
+        color:var(--neon-blue);
+        font-size:35px;font-weight:100;line-height:1;
+    }
+    /* === END MENU TOGGLE CSS === */
+    
+    .hero{
+        text-align:center;
+        padding:80px 20px 40px;
+    }
+    .hero h1{
+        font-size:52px;
+        font-weight:800;
+        background:var(--gradient-hero);
+        -webkit-background-clip:text;
+        -webkit-text-fill-color:transparent;
+        margin-bottom:18px;
+    }
+    .hero p{
+        color:var(--text-dim);
+        max-width:900px;
+        margin:auto;
+        font-size:18px;
+        line-height:1.7;
+    }
+    .container{
+        max-width:1100px; 
+        margin:0 auto 80px;
+        padding:0 20px;
+    }
+    /* 🛠️ CẤU TRÚC HAI CỘT SONG SONG */
+    .two-column-layout{
+        display:flex;
+        gap:30px; 
+        align-items:flex-start;
+    }
+    .content-left {
+        flex: 3; 
+    }
+    .images-right {
+        flex: 2; 
         display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        justify-content: center;
-        padding: 15px 10px;
-        background: var(--card-bg); 
-        border-bottom: 1px solid #E0E0E0;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-    }
-    nav a {
-        color: var(--text-color);
-        text-decoration: none;
-        padding: 8px 15px;
-        border-radius: 6px;
-        font-weight: 600;
-        transition: 0.2s;
-        border: 1px solid transparent;
-    }
-    nav a:hover {
-        background: var(--secondary-accent);
-        color: var(--primary-accent);
-        border-color: var(--primary-accent);
+        flex-direction: column; 
+        gap: 20px;
+        position: sticky; 
+        top: 80px; 
     }
 
     /* Khung nội dung chính (Container) */
@@ -62,13 +133,16 @@
     }
 
     h1 {
-        color: var(--primary-accent);
+        /* Đồng bộ tiêu đề */
+        font-size: 42px;
+        font-weight: 800;
+        background: var(--gradient-hero);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         text-align: center;
         margin-bottom: 40px;
-        font-weight: 800;
-        border-bottom: 2px solid var(--secondary-accent);
+        border-bottom: 2px solid rgba(77, 195, 255, 0.15);
         padding-bottom: 15px;
-        font-size: 32px;
     }
     
     /* ✅ LAYOUT 3 Ô LINK (Kích hoạt) */
@@ -80,14 +154,15 @@
     }
     
     .link-card {
-        background: var(--card-bg);
+        /* Đồng bộ Card */
+        background: var(--gradient-card);
         padding: 25px 30px;
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow);
-        border: 1px solid #E0E0E0;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-neon);
+        border: 1px solid rgba(255, 255, 255, 0.08);
         transition: 0.3s;
         text-decoration: none;
-        color: var(--text-color);
+        color: var(--text-light);
         display: flex;
         align-items: center;
         font-size: 18px;
@@ -97,13 +172,13 @@
     
     .link-card:hover {
         transform: translateY(-4px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        border-color: var(--primary-accent);
-        background: var(--secondary-accent);
+        box-shadow: 0 0 20px rgba(77,195,255,0.4);
+        border-color: var(--neon-blue);
+        background: var(--gradient-card); /* Giữ nguyên nền gradient */
     }
 
     .link-icon {
-        color: var(--primary-accent);
+        color: var(--neon-purple); /* Màu neon cho icon */
         font-size: 24px;
         margin-right: 15px;
         line-height: 1;
@@ -111,16 +186,22 @@
 
     /* === KHU VỰC HIỂN THỊ NỘI DUNG TÙY CHỈNH (EXPANDED CONTENT) === */
     .expanded-area {
-        max-width: 800px; /* Kích thước tối đa cho nội dung mở rộng */
+        max-width: 800px; 
         margin: 0 auto 40px auto; 
         padding: 20px 0;
         text-align: center;
-        border-top: 1px solid #E0E0E0;
+        border-top: 1px solid rgba(255, 255, 255, 0.05); /* Border neon mờ */
     }
     
     .expanded-area h2 {
-        color: var(--primary-accent);
+        /* Đồng bộ tiêu đề */
+        color: var(--neon-blue);
         margin-bottom: 10px;
+        font-size: 28px;
+    }
+    
+    .expanded-area p {
+        color: var(--text-dim);
     }
     
     /* 1️⃣ LAYOUT 1 ẢNH NGANG VỚI NÚT LINK (Mục 1 & 2) */
@@ -140,19 +221,19 @@
 
     .one-image-layout .image-card {
         flex: 1 1 200px; 
-        max-width: 400px; /* Điều chỉnh kích thước ảnh ngang */
-        height: 180px; /* Điều chỉnh chiều cao khung ảnh ngang */
+        max-width: 400px; 
+        height: 180px; 
         overflow: hidden;
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow);
-        border: 1px solid #E0E0E0;
+        border-radius: var(--radius);
+        box-shadow: 0 0 10px rgba(77,195,255,0.2); /* Shadow nhẹ cho ảnh */
+        border: 1px solid rgba(255, 255, 255, 0.08);
         transition: 0.3s;
     }
     
     .one-image-layout .image-card img {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Đảm bảo ảnh lấp đầy khung */
+        object-fit: cover; 
         display: block;
     }
 
@@ -163,23 +244,23 @@
         grid-template-rows: auto auto;
         gap: 20px;
         margin-top: 30px;
-        max-width: 750px; /* Điều chỉnh max-width cho layout 4 ảnh */
+        max-width: 750px; 
         margin-left: auto;
         margin-right: auto;
     }
 
     .four-image-layout .image-card {
-        background: var(--card-bg);
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow);
+        background: var(--bg-card);
+        border-radius: var(--radius);
+        box-shadow: 0 0 10px rgba(77,195,255,0.2);
         overflow: hidden;
-        border: 1px solid #E0E0E0;
+        border: 1px solid rgba(255, 255, 255, 0.08);
         transition: 0.3s;
     }
     
     .four-image-layout .image-card img {
         width: 100%;
-        height: 150px; /* Giữ nguyên chiều cao cho ảnh thumbnail */
+        height: 150px; 
         object-fit: cover;
         display: block;
     }
@@ -197,27 +278,47 @@
     .main-button a {
         display: block;
         padding: 20px 30px;
-        background: var(--primary-accent);
-        color: var(--card-bg);
+        background: var(--primary-button); /* Dùng gradient */
+        color: var(--bg-dark); /* Chữ tối màu trên nền sáng */
         text-decoration: none;
-        border-radius: var(--border-radius);
+        border-radius: var(--radius);
         font-weight: 700;
         font-size: 20px;
         transition: 0.3s;
-        box-shadow: var(--shadow);
+        box-shadow: 0 4px 15px rgba(77, 195, 255, 0.4);
     }
     
     .main-button a:hover {
-        background: #0056e6;
+        background: linear-gradient(135deg, #69d4ff, #a07dff);
         transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 6px 20px rgba(77, 195, 255, 0.6);
     }
     
     /* Hiệu ứng hover cho hình ảnh */
     .image-card:hover {
         transform: scale(1.03);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        border-color: var(--primary-accent);
+        box-shadow: 0 0 20px rgba(77,195,255,0.4);
+        border-color: var(--neon-blue);
+    }
+
+    /* 📱 MEDIA QUERY CHO THIẾT BỊ DI ĐỘNG */
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 32px;
+        }
+        .four-image-layout {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            max-width: 400px;
+        }
+        .four-image-layout .image-card:nth-child(1) { grid-area: auto; }
+        .four-image-layout .image-card:nth-child(2) { grid-area: auto; }
+        .four-image-layout .image-card:nth-child(4) { grid-area: auto; }
+        .four-image-layout .image-card:nth-child(5) { grid-area: auto; }
+        .four-image-layout .main-button { 
+            grid-area: auto;
+            order: -1; /* Đẩy nút lên đầu */
+        }
     }
 
 
@@ -226,16 +327,22 @@
 </head>
 <body>
 
-<nav>
-    <a href="index.html">TRANG CHỦ</a>
-    <a href="muc1.html">THÔNG TIN</a>
-    <a href="muc2.html">VAI TRÒ</a>
-    <a href="muc3.html">NHỮNG SAI LẦM</a>
-    <a href="muc4.html">GIẢI PHÁP</a>
-</nav>
+    <div class="header-container">
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+    
+    <nav id="main-nav">
+        <button class="menu-toggle close-btn" onclick="toggleMenu()">✕</button>
+        <a href="index.html">TRANG CHỦ</a>
+        <a href="muc1.html" >THÔNG TIN</a>
+        <a href="muc2.html">VAI TRÒ</a>
+        <a href="muc3.html">NHỮNG SAI LẦM</a>
+        <a href="muc4.html"class="active">GIẢI PHÁP</a>
+    </nav>
+    
 
 <div class="container">
-    <h1>GIẢI PHÁP VÀ NGUYÊN TẮC SỬ DỤNG</h1>
+    <h1> </h1>
 
     <div class="link-list">
         
@@ -259,7 +366,7 @@
 
 <div id="expanded-content-1" class="expanded-area" style="display: none;">
     <h2>CẨM NANG CHAT GPT</h2>
-    <p style="font-size: 1.1em; color: #555;">Truy cập cẩm nang hướng dẫn sử dụng ChatGPT hiệu quả.</p>
+    <p style="font-size: 1.1em; color: var(--text-dim);">Truy cập cẩm nang hướng dẫn sử dụng ChatGPT hiệu quả.</p>
     
     <div class="one-image-layout">
         
@@ -278,7 +385,7 @@
 
 <div id="expanded-content-2" class="expanded-area" style="display: none;">
     <h2>GÓC THẢO LUẬN</h2>
-    <p style="font-size: 1.1em; color: #555;">Tham gia cộng đồng và chia sẻ kinh nghiệm sử dụng công cụ AI.</p>
+    <p style="font-size: 1.1em; color: var(--text-dim);">Tham gia cộng đồng và chia sẻ kinh nghiệm sử dụng công cụ AI.</p>
     
     <div class="one-image-layout">
         
@@ -297,7 +404,7 @@
 
 <div id="expanded-content-3" class="expanded-area" style="display: none;">
     <h2>GÓC TỰ HỌC </h2>
-    <p style="font-size: 1.1em; color: #555;"></p>
+    <p style="font-size: 1.1em; color: var(--text-dim);"></p>
 
     <div class="four-image-layout">
         
@@ -313,7 +420,7 @@
         </div>
 
         <div class="image-card">
-            <img src="https://i.postimg.cc/3JDx3GBJ/Screenshot_2025_11_25_at_12_39_31.png" alt="Minh họa 2">
+            <img src="https://i.postimg.cc/3JDx3GBJ/Screenshot_2025_11-25_at_12_39_31.png" alt="Minh họa 2">
         </div>
 
         <div class="image-card">
@@ -365,6 +472,43 @@
         }
     });
 </script>
+<script>
+    function toggleMenu() {
+        const nav = document.getElementById('main-nav');
+        nav.classList.toggle('open');
+    }
+
+    function toggleAccordion(element) {
+        const allContents = document.querySelectorAll('.accordion-content');
+        const allHeaders = document.querySelectorAll('.accordion-header');
+        
+        const currentContent = element.nextElementSibling;
+        const currentIcon = element.querySelector('.accordion-icon');
+
+        // Đóng tất cả các accordion khác (trừ accordion hiện tại)
+        allHeaders.forEach(header => {
+            if (header !== element && header.classList.contains('active')) {
+                header.classList.remove('active');
+                header.nextElementSibling.classList.remove('open');
+                header.nextElementSibling.style.maxHeight = null; // Đặt lại chiều cao
+            }
+        });
+
+        // Mở/đóng accordion hiện tại
+        element.classList.toggle('active');
+
+        if (currentContent.style.maxHeight) {
+            // Đang mở, đóng lại
+            currentContent.style.maxHeight = null;
+            currentContent.classList.remove('open');
+        } else {
+            // Đang đóng, mở ra
+            currentContent.style.maxHeight = currentContent.scrollHeight + "px";
+            currentContent.classList.add('open');
+        }
+    }
+</script>
+
 
 </body>
 </html>
