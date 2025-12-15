@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-   <head>
     <meta charset="UTF-8">
-   <meta name="description" content="Trang thông tin về việc sử dụng AI đúng cách trong học tập - vai trò, sai lầm và giải pháp.">
+    <meta name="description" content="Trang thông tin về việc sử dụng AI đúng cách trong học tập - vai trò, sai lầm và giải pháp.">
     <title>NHỮNG SAI LẦM KHI SỬ DỤNG CHAT GPT</title>
+
+
 <style>
     /* ==================================== */
     /*  STYLE B: AI MODERN (NEON GRADIENT)  */
+    /* (GIỮ NGUYÊN CSS TỪ CẤU TRÚC BẠN CUNG CẤP) */
     /* ==================================== */
-    :root {
-        --nav-width: 300px;
+    :root{
+        
         --bg-dark: #0d1731 ;
-        --bg-card: #0d1731 ;
-        --neon-blue: #4dc3ff;
-        --neon-purple: #8b5bff;
-        --text-light: #e9ecf8;
-        --text-dim: #b9c0d4;
-        --radius: 12px;
-        --shadow-neon: 0 0 15px rgba(77,195,255,0.25);
-        --gradient-hero: linear-gradient(135deg, #4dc3ff, #8a5bff);
-        --gradient-card: linear-gradient(135deg, #10304a 0%, #1d0f3b 100%);
-        --accordion-active-bg: #10304a; /* Nền xanh đậm hơn khi active */
+        --bg-card: #ba25a7 ;
+        --neon-blue:#4dc3ff;
+        --neon-purple:#8b5bff;
+        --text-light:#e9ecf8;
+        --text-dim:#b9c0d4;
+        --radius:18px;
+        --shadow-neon:0 0 18px rgba(77,195,255,0.35);
+        --gradient-hero:linear-gradient(135deg, #4dc3ff, #8a5bff);
+        --gradient-card:linear-gradient(135deg, #10304a 0%, #1d0f3b 100%);
+        --nav-width: 300px; 
     }
 
-    body {
-        font-family: "Poppins", sans-serif;
-        margin: 0;
-        background: var(--bg-dark);
-        color: var(--text-light);
-        line-height: 1.7;
+    body{
+        margin:0;
+        font-family:"Poppins", sans-serif;
+        background:var(--bg-dark);
+        color:var(--text-light);
+        line-height:1.7;
     }
 
     /* === MENU TOGGLE CSS === */
@@ -117,194 +119,212 @@
     }
     .images-right {
         flex: 2; 
+        max-width: 400px; 
         display: flex;
         flex-direction: column; 
         gap: 20px;
         position: sticky; 
         top: 80px; 
     }
-
-    /* Khung nội dung chính (Container) */
-    .container {
-        max-width: 800px; 
-        margin: 40px auto;
-        padding: 0 20px;
+    
+    /* === STYLE CHO INFO BOX (Trái) === */
+    .info-box{
+        background:var(--gradient-card);
+        padding:32px;
+        border-radius:var(--radius);
+        box-shadow:var(--shadow-neon);
+        border:1px solid rgba(255,255,255,0.08);
     }
-
-    h1 {
-        /* Đồng bộ tiêu đề */
-        font-size: 42px;
-        font-weight: 800;
-        background: var(--gradient-hero);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-align: center;
-        margin-bottom: 40px;
-        border-bottom: 2px solid rgba(77, 195, 255, 0.15);
-        padding-bottom: 15px;
+    .info-box h2{
+        color:var(--neon-blue);
+        font-size:24px;
+        font-weight:700;
+        margin-top:0;
+        border-bottom:2px solid rgba(77,195,255,0.15);
+        padding-bottom:10px;
+    }
+    .user-content p{
+        margin-bottom:15px;
+        color:var(--text-dim);
+    }
+    .user-content h3{
+        color:var(--neon-blue);
+        font-size:18px;
+        font-weight:700;
+        margin-top:25px;
+        margin-bottom:10px;
+    }
+    .gemini-link{
+        display:inline-block;
+        margin-top:20px;
+        padding:12px 25px;
+        background:var(--gradient-hero);
+        color:var(--bg-dark);
+        text-decoration:none;
+        border-radius:8px;
+        font-weight:600;
+        transition:0.3s;
+        box-shadow:0 4px 15px rgba(77,195,255,0.4);
+    }
+    .gemini-link:hover{
+        background:linear-gradient(135deg, #69d4ff, #a07dff);
+        transform:translateY(-3px);
+        box-shadow:0 6px 20px rgba(77,195,255,0.6);
     }
     
-    /* ✅ ACCORDION STYLE (5 MỤC DẠNG DỌC) */
-    .accordion-item {
-        margin-bottom: 15px;
-        border-radius: var(--radius);
-        box-shadow: var(--shadow-neon);
-        /* Đồng bộ border và nền */
-        border: 1px solid rgba(255, 255, 255, 0.08); 
-        background: var(--bg-card);
-        overflow: hidden;
-        transition: box-shadow 0.3s;
-    }
-
-    .accordion-item:hover {
-        box-shadow: 0 0 20px rgba(77,195,255,0.4);
-    }
-    
-    .accordion-header {
-        background: var(--bg-card); /* Nền mặc định của card */
-        padding: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        cursor: pointer;
-        font-size: 18px;
-        font-weight: 700;
-        color: var(--text-light);
+    /* === STYLE CHO IMAGE CARDS (Phải) === */
+    .image-card{
+        background:var(--gradient-card);
+        border-radius:var(--radius);
+        box-shadow:var(--shadow-neon);
+        border:1px solid rgba(255,255,255,0.08);
+        overflow:hidden;
+        padding:20px;
+        text-align:center;
         transition: 0.3s;
-        border-bottom: 1px solid transparent;
     }
-
-    .accordion-header:hover {
-        background: var(--accordion-active-bg);
-        color: var(--neon-blue);
+    .image-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 25px rgba(77,195,255,0.5);
     }
-
-    .accordion-header.active {
-        background: var(--accordion-active-bg);
-        color: var(--neon-blue);
-        border-bottom: 1px solid rgba(77, 195, 255, 0.3);
+    .image-card h3 {
+        color: var(--neon-purple);
+        font-size: 18px;
+        margin-top: 5px;
     }
-
-    .accordion-icon {
-        font-size: 20px;
-        transform: rotate(0deg);
-        transition: transform 0.3s;
-        color: var(--neon-purple); /* Màu neon cho icon */
-    }
-    .accordion-header.active .accordion-icon {
-        transform: rotate(180deg);
-        color: var(--neon-blue);
-    }
-
-    .accordion-content {
-        padding: 0 20px;
-        background: var(--bg-dark); /* Nền đậm hơn cho phần nội dung mở ra */
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    /* Đã thêm class cho ảnh để CSS dễ hơn */
+    .card-image {
+        width: 100%;
+        height: 250px; /* Chiều cao cố định cho ảnh đại diện */
+        object-fit: cover; /* Đảm bảo ảnh phủ hết khu vực mà không bị kéo giãn */
+        border-radius: calc(var(--radius) - 5px);
+        margin-bottom: 10px;
+        display: block;
+        border: 1px solid rgba(139, 91, 255, 0.2);
     }
     
-    .accordion-content.open {
-        max-height: 500px; 
-        padding: 20px;
-        border-top: 1px solid rgba(255, 255, 255, 0.05); /* Border nhẹ giữa header và content */
+    /* STYLE CHO LINK BÊN DƯỚI ẢNH (Nút bấm) */
+    .image-card .card-link {
+        display: block;
+        margin-top: 15px;
+        padding: 10px 15px;
+        background: var(--neon-purple); 
+        color: var(--text-light);
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 15px;
+        transition: background 0.3s, transform 0.3s;
+        border: 1px solid var(--neon-purple);
     }
-    
-    .accordion-content p {
-        color: var(--text-dim); /* Đồng bộ màu chữ nội dung */
-        white-space: pre-line;
+    .image-card .card-link:hover {
+        background: transparent; 
+        color: var(--neon-purple);
+        transform: scale(1.02);
+        box-shadow: 0 0 10px rgba(139, 91, 255, 0.7);
     }
 
-    /* 📱 MEDIA QUERY CHO THIẾT BỊ DI ĐỘNG */
-    @media (max-width: 768px) {
-        h1 {
-            font-size: 32px;
+    footer{
+        margin-top:80px;
+        padding:30px;
+        text-align:center;
+        font-size:14px;
+        color:var(--text-dim);
+        border-top:1px solid rgba(255,255,255,0.05);
+    }
+    
+    /* Responsive: Xếp dọc trên màn hình nhỏ */
+    @media (max-width: 992px){
+        .two-column-layout {
+            flex-direction: column;
+        }
+        .images-right {
+            order: -1; 
+            position: static; 
+            width: 100%;
+            max-width: 100%;
+        }
+        .hero h1{
+            font-size:40px;
         }
     }
 </style>
-
 </head>
 <body>
 
-    <div class="header-container">
-        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    </div>
-    
-    <nav id="main-nav">
-        <button class="menu-toggle close-btn" onclick="toggleMenu()">✕</button>
-        <a href="index.html">TRANG CHỦ</a>
-        <a href="muc1.html">THÔNG TIN</a>
-        <a href="muc2.html">VAI TRÒ</a>
-        <a href="muc3.html" class="active">NHỮNG SAI LẦM</a>
-        <a href="muc4.html">GIẢI PHÁP</a>
-    </nav>
-    
-    
+<div class="header-container">
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+</div>
+
+<nav id="main-nav">
+    <button class="menu-toggle close-btn" onclick="toggleMenu()">✕</button>
+    <a href="index.html">TRANG CHỦ</a>
+    <a href="muc1.html">THÔNG TIN</a>
+    <a href="muc2.html">VAI TRÒ</a>
+    <a href="muc3.html" class="active">NHỮNG SAI LẦM</a>
+    <a href="muc4.html">GIẢI PHÁP</a>
+</nav>
+
+<section class="hero">
+    <h1>NHỮNG SAI LẦM THƯỜNG GẶP</h1>
+    <p>Nhận diện và tránh những lỗi phổ biến khi sử dụng công cụ AI để đảm bảo hiệu quả học tập tối đa.</p>
+</section>
 
 <div class="container">
-    <h1>NHỮNG SAI LẦM THƯỜNG GẶP </h1>
-
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion(this)">
-            Sai lầm 1: Chưa biết đặt câu hỏi
-            <span class="accordion-icon">▼</span>
-        </div>
-        <div class="accordion-content">
-            <p>
-                Nhiều học sinh chưa biết cách đặt câu hỏi rõ ràng khiến ChatGPT trả lời sai ý, thiếu thông tin hoặc không đúng mong muốn. Khi câu hỏi mơ hồ, câu trả lời thường chung chung và không hỗ trợ được việc học.
-            </p>
-        </div>
-    </div>
-
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion(this)">
-            Sai lầm 2: Học sinh phụ thuộc vào Chat GPT
-            <span class="accordion-icon">▼</span>
-        </div>
-        <div class="accordion-content">
-             <p>
-                Một số học sinh sử dụng ChatGPT quá mức, để công cụ làm thay toàn bộ bài tập thay vì tự suy nghĩ hoặc soạn thảo nội dung mà không tìm hiểu. Điều này làm giảm khả năng tư duy độc lập và khiến việc học không còn hiệu quả.
-            </p>
-        </div>
-    </div>
-    
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion(this)">
-            Sai lầm 3: Không kiểm chứng thông tin
-            <span class="accordion-icon">▼</span>
-        </div>
-        <div class="accordion-content">
-             <p>
-                Nhiều học sinh tin tuyệt đối vào câu trả lời của ChatGPT mà không kiểm tra lại thông tin, dẫn đến sử dụng dữ liệu sai hoặc hiểu nhầm kiến thức.
-            </p>
-        </div>
-    </div>
-
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion(this)">
-            Sai lầm 4: Học sinh không cập nhật kiến thức cho Chat GPT
-            <span class="accordion-icon">▼</span>
-        </div>
-        <div class="accordion-content">
-             <p>
-                ChatGPT được huấn luyện dựa trên dữ liệu đến một thời điểm nhất định và không tự động cập nhật kiến thức mới. Nếu học sinh không chủ động bổ sung thông tin hoặc đặt câu hỏi kèm ngữ cảnh mới, công cụ có thể trả lời lỗi thời hoặc thiếu chính xác.
-            </p>
-        </div>
-    </div>
-    
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion(this)">
-            Sai lầm 5: Đạo văn 
-            <span class="accordion-icon">▼</span>
-        </div>
-        <div class="accordion-content">
-             <p>
+    <div class="two-column-layout">
+        
+        <div class="content-left">
+            <div class="info-box">
+                <h2 id="sai-lam"> SAI LẦM TRONG HỌC TẬP VỚI AI</h2>
                 
-                Một số học sinh sao chép trực tiếp nội dung ChatGPT mà không trích dẫn, dẫn đến đạo văn – vi phạm nguyên tắc học tập trung thực và kìm hãm khả năng sáng tạo.
-            </p>
-        </div>
-    </div>
+                <div class="user-content">
+                    <p>
+                        Việc sử dụng các công cụ AI như ChatGPT không đúng cách có thể kìm hãm sự phát triển tư duy, dẫn đến kết quả học tập không như mong muốn và thiếu kỹ năng cần thiết trong tương lai.
+                    </p>
 
+                    <h3>Sai lầm 1: Chưa biết đặt câu hỏi </h3>
+                    <p>
+                        Nhiều học sinh chưa biết cách đặt câu hỏi rõ ràng khiến ChatGPT trả lời sai ý, thiếu thông tin hoặc không đúng mong muốn. Khi câu hỏi mơ hồ, câu trả lời thường chung chung và không hỗ trợ được việc học.
+                    </p>
+
+                    <h3>Sai lầm 2: Học sinh phụ thuộc vào Chat GPT</h3>
+                    <p>
+                        Một số học sinh sử dụng ChatGPT quá mức, để công cụ làm thay toàn bộ bài tập thay vì tự suy nghĩ hoặc soạn thảo nội dung mà không tìm hiểu. Điều này làm giảm khả năng tư duy độc lập và khiến việc học không còn hiệu quả.
+                    </p>
+                    
+                    <h3>Sai lầm 3: Không kiểm chứng thông tin </h3>
+                    <p>
+                        Nhiều học sinh tin tuyệt đối vào câu trả lời của ChatGPT mà không kiểm tra lại thông tin, dẫn đến sử dụng dữ liệu sai hoặc hiểu nhầm kiến thức.
+                    </p>
+
+                    <h3>Sai lầm 4: Học sinh không cập nhật kiến thức cho Chat GPT</h3>
+                    <p>
+                        ChatGPT được huấn luyện dựa trên dữ liệu đến một thời điểm nhất định và không tự động cập nhật kiến thức mới. Nếu học sinh không chủ động bổ sung thông tin hoặc đặt câu hỏi kèm ngữ cảnh mới, công cụ có thể trả lời lỗi thời hoặc thiếu chính xác.
+                    </p>
+                    
+                    <h3>Sai lầm 5: Đạo văn</h3>
+                    <p>
+                        Một số học sinh sao chép trực tiếp nội dung ChatGPT mà không trích dẫn, dẫn đến đạo văn – vi phạm nguyên tắc học tập trung thực và kìm hãm khả năng sáng tạo.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="images-right">
+            
+            <div class="image-card">
+                <h3>🎬 VIDEO: Để Không Phụ Thuộc AI</h3>
+                
+                
+                <img src="https://i.postimg.cc/251Z1mDK/Gemini-Generated-Image-hj2hozhj2hozhj2h.png" alt="Ảnh đại diện video hướng dẫn AI" class="card-image">
+                
+                <a href="https://www.youtube.com/watch?v=pJAQe2p97xs" target="_blank" class="card-link">XEM VIDEO </a>
+            </div>
+            
+        </div>
+        
+    </div>
 </div>
 
 <script>
@@ -312,37 +332,6 @@
         const nav = document.getElementById('main-nav');
         nav.classList.toggle('open');
     }
-
-    function toggleAccordion(element) {
-        const allContents = document.querySelectorAll('.accordion-content');
-        const allHeaders = document.querySelectorAll('.accordion-header');
-        
-        const currentContent = element.nextElementSibling;
-        const currentIcon = element.querySelector('.accordion-icon');
-
-        // Đóng tất cả các accordion khác (trừ accordion hiện tại)
-        allHeaders.forEach(header => {
-            if (header !== element && header.classList.contains('active')) {
-                header.classList.remove('active');
-                header.nextElementSibling.classList.remove('open');
-                header.nextElementSibling.style.maxHeight = null; // Đặt lại chiều cao
-            }
-        });
-
-        // Mở/đóng accordion hiện tại
-        element.classList.toggle('active');
-
-        if (currentContent.style.maxHeight) {
-            // Đang mở, đóng lại
-            currentContent.style.maxHeight = null;
-            currentContent.classList.remove('open');
-        } else {
-            // Đang đóng, mở ra
-            currentContent.style.maxHeight = currentContent.scrollHeight + "px";
-            currentContent.classList.add('open');
-        }
-    }
 </script>
-
 </body>
 </html>
