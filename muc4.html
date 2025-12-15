@@ -342,7 +342,7 @@
     
 
 <div class="container">
-    <h1> </h1>
+    <h1>GIẢI PHÁP </h1>
 
     <div class="link-list">
         
@@ -351,14 +351,16 @@
             Cẩm nang Chat GPT người bạn học thông minh
         </a>
 
-        <a id="toggle-content-2" class="link-card">
-            <span class="link-icon">💬</span>
-            Tham gia Góc thảo luận
-        </a>
-
-        <a id="toggle-content-3" class="link-card"> 
+        <a id="toggle-content-2" class="link-card"> 
             <span class="link-icon">💡</span>
             Góc tự học (Website hỗ trợ)
+        </a>
+        <a id="toggle-content-3" class="link-card"> 
+            <span class="link-icon">💬</span>
+            Góc tư vấn & hỗ trợ 
+        </a>
+        <a id="toggle-content-4" class="link-card">
+            <span class="link-icon">👥</span> Tham gia Góc thảo luận
         </a>
 
     </div>
@@ -384,25 +386,6 @@
 </div>
 
 <div id="expanded-content-2" class="expanded-area" style="display: none;">
-    <h2>GÓC THẢO LUẬN</h2>
-    <p style="font-size: 1.1em; color: var(--text-dim);">Tham gia cộng đồng và chia sẻ kinh nghiệm sử dụng công cụ AI.</p>
-    
-    <div class="one-image-layout">
-        
-        <div class="main-button">
-            <a href="https://www.facebook.com/share/g/1MEJdLh4dw/?mibextid=wwXIfr" target="_blank">
-                <span style="margin-right: 10px;">👥</span> 
-                THAM GIA GÓC THẢO LUẬN
-            </a>
-        </div>
-        
-        <div class="image-card">
-            <img src="https://i.postimg.cc/nV6rNTtR/585934968_122167099676749237_765603620934074649_n.jpg" alt="Minh họa Góc thảo luận">
-        </div>
-    </div>
-</div>
-
-<div id="expanded-content-3" class="expanded-area" style="display: none;">
     <h2>GÓC TỰ HỌC </h2>
     <p style="font-size: 1.1em; color: var(--text-dim);"></p>
 
@@ -433,17 +416,59 @@
     </div>
 </div>
 
+<div id="expanded-content-3" class="expanded-area" style="display: none;">
+    <h2>GÓC TƯ VẤN & HỖ TRỢ</h2>
+    <p style="font-size: 1.1em; color: var(--text-dim);"></p>
+    
+    <div class="one-image-layout">
+        
+        <div class="main-button">
+            <a href="https://partyrock.aws/u/ChloeNguyen241208/rFVi9mpSP/Prompt-Coach-Tro-Thu-AI-Thong-Minh" target="_blank">
+                <span style="margin-right: 10px;">💬</span> 
+                TƯ VẤN NGAY
+            </a>
+        </div>
+        
+        <div class="image-card">
+            <img src="https://i.postimg.cc/283GQprW/Gemini-Generated-Image-2dd06d2dd06d2dd0.png" alt="Minh họa Góc tư vấn">
+        </div>
+    </div>
+</div>
+
+
+<div id="expanded-content-4" class="expanded-area" style="display: none;">
+    <h2>GÓC THẢO LUẬN</h2>
+    <p style="font-size: 1.1em; color: var(--text-dim);"></p>
+    
+    <div class="one-image-layout">
+        
+        <div class="main-button">
+            <a href="https://www.facebook.com/share/g/1MEJdLh4dw/?mibextid=wwXIfr" target="_blank">
+                <span style="margin-right: 10px;">👥</span> 
+                THAM GIA GÓC THẢO LUẬN
+            </a>
+        </div>
+        
+        <div class="image-card">
+            <img src="https://i.postimg.cc/nV6rNTtR/585934968_122167099676749237_765603620934074649_n.jpg" alt="Minh họa Góc thảo luận">
+        </div>
+    </div>
+</div>
+
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Cập nhật mapping để bao gồm cả 4 mục
         const toggleButtons = {
             'toggle-content-1': 'expanded-content-1',
             'toggle-content-2': 'expanded-content-2',
-            'toggle-content-3': 'expanded-content-3'
+            'toggle-content-3': 'expanded-content-3', // Mục đã sửa lỗi
+            'toggle-content-4': 'expanded-content-4'  // Mục đã sửa lỗi
         };
 
         const contentAreas = document.querySelectorAll('.expanded-area');
 
-        function toggleContent(buttonId, contentId) {
+        function toggleContent(contentId) {
             const content = document.getElementById(contentId);
             
             // Ẩn tất cả các khu vực nội dung khác
@@ -465,13 +490,17 @@
 
         // Gán sự kiện cho từng nút
         for (const [buttonId, contentId] of Object.entries(toggleButtons)) {
-            document.getElementById(buttonId).addEventListener('click', function(event) {
-                event.preventDefault(); 
-                toggleContent(buttonId, contentId);
-            });
+            const button = document.getElementById(buttonId);
+            if (button) {
+                 button.addEventListener('click', function(event) {
+                    event.preventDefault(); 
+                    toggleContent(contentId);
+                });
+            }
         }
     });
 </script>
+
 <script>
     function toggleMenu() {
         const nav = document.getElementById('main-nav');
