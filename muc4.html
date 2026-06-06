@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<head>
     <meta charset="UTF-8">
     <meta name="description" content="Trang thông tin về việc sử dụng AI đúng cách trong học tập - vai trò, sai lầm và giải pháp.">
     <title>GIẢI PHÁP SỬ DỤNG AI</title>
 
 <style>
     /* ==================================== */
-    /*  STYLE B: AI MODERN (NEON GRADIENT)  */
+    /*   STYLE B: AI MODERN (NEON GRADIENT) */
     /* ==================================== */
     :root {
         --nav-width: 300px;
@@ -22,7 +21,7 @@
         --shadow-neon: 0 0 15px rgba(77,195,255,0.25);
         --gradient-hero: linear-gradient(135deg, #4dc3ff, #8a5bff);
         --gradient-card: linear-gradient(135deg, #10304a 0%, #1d0f3b 100%);
-        --primary-button: linear-gradient(135deg, #4dc3ff, #8a5bff); /* Nút chính dùng gradient */
+        --primary-button: linear-gradient(135deg, #4dc3ff, #8a5bff);
     }
 
     body {
@@ -33,7 +32,6 @@
         line-height: 1.7;
     }
 
-    
     /* === MENU TOGGLE CSS === */
     .header-container{
         position:sticky;top:0;z-index:1000;padding:10px 20px;
@@ -85,67 +83,32 @@
     
     .hero{
         text-align:center;
-        padding:80px 20px 40px;
+        padding:60px 20px 20px;
     }
-    .hero h1{
-        font-size:52px;
-        font-weight:800;
-        background:var(--gradient-hero);
-        -webkit-background-clip:text;
-        -webkit-text-fill-color:transparent;
-        margin-bottom:18px;
-    }
-    .hero p{
-        color:var(--text-dim);
-        max-width:900px;
-        margin:auto;
-        font-size:18px;
-        line-height:1.7;
-    }
-    .container{
-        max-width:1100px; 
-        margin:0 auto 80px;
-        padding:0 20px;
-    }
-    /* 🛠️ CẤU TRÚC HAI CỘT SONG SONG */
-    .two-column-layout{
-        display:flex;
-        gap:30px; 
-        align-items:flex-start;
-    }
-    .content-left {
-        flex: 3; 
-    }
-    .images-right {
-        flex: 2; 
-        display: flex;
-        flex-direction: column; 
-        gap: 20px;
-        position: sticky; 
-        top: 80px; 
-    }
-
-    /* Khung nội dung chính (Container) */
-    .container {
-        max-width: 600px; 
-        margin: 40px auto;
-        padding: 0 20px;
-    }
-
-    h1 {
-        /* Đồng bộ tiêu đề */
-        font-size: 42px;
+    .hero h1 {
+        font-size: 46px;
         font-weight: 800;
         background: var(--gradient-hero);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         text-align: center;
-        margin-bottom: 40px;
-        border-bottom: 2px solid rgba(77, 195, 255, 0.15);
-        padding-bottom: 15px;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+    }
+    .hero p {
+        color: var(--text-dim);
+        max-width: 700px;
+        margin: auto;
+        font-size: 17px;
+    }
+
+    /* Khung danh sách chứa các thẻ link */
+    .container {
+        max-width: 650px; 
+        margin: 30px auto 60px;
+        padding: 0 20px;
     }
     
-    /* ✅ LAYOUT 3 Ô LINK (Kích hoạt) */
     .link-list {
         display: flex;
         flex-direction: column;
@@ -153,177 +116,89 @@
         margin-bottom: 40px;
     }
     
+    /* Cấu trúc thẻ liên kết nhảy trang trực tiếp */
     .link-card {
-        /* Đồng bộ Card */
         background: var(--gradient-card);
-        padding: 25px 30px;
+        padding: 22px 28px;
         border-radius: var(--radius);
         box-shadow: var(--shadow-neon);
         border: 1px solid rgba(255, 255, 255, 0.08);
-        transition: 0.3s;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         text-decoration: none;
         color: var(--text-light);
         display: flex;
         align-items: center;
-        font-size: 18px;
+        justify-content: space-between; /* Đẩy mũi tên về cuối thẻ */
+        font-size: 17px;
         font-weight: 700;
-        cursor: pointer;
     }
     
+    .link-card-content {
+        display: flex;
+        align-items: center;
+    }
+
     .link-card:hover {
         transform: translateY(-4px);
-        box-shadow: 0 0 20px rgba(77,195,255,0.4);
+        box-shadow: 0 0 22px rgba(77,195,255,0.45);
         border-color: var(--neon-blue);
-        background: var(--gradient-card); /* Giữ nguyên nền gradient */
     }
 
     .link-icon {
-        color: var(--neon-purple); /* Màu neon cho icon */
+        color: var(--neon-purple); 
         font-size: 24px;
-        margin-right: 15px;
+        margin-right: 18px;
         line-height: 1;
     }
 
-    /* === KHU VỰC HIỂN THỊ NỘI DUNG TÙY CHỈNH (EXPANDED CONTENT) === */
-    .expanded-area {
-        max-width: 800px; 
-        margin: 0 auto 40px auto; 
-        padding: 20px 0;
-        text-align: center;
-        border-top: 1px solid rgba(255, 255, 255, 0.05); /* Border neon mờ */
-    }
-    
-    .expanded-area h2 {
-        /* Đồng bộ tiêu đề */
+    .arrow-icon {
         color: var(--neon-blue);
-        margin-bottom: 10px;
-        font-size: 28px;
+        font-size: 16px;
+        transition: 0.3s;
     }
-    
-    .expanded-area p {
+    .link-card:hover .arrow-icon {
+        transform: translateX(5px);
+        text-shadow: 0 0 8px var(--neon-blue);
+    }
+
+    /* Khối nút Form góp ý mới bổ sung phía dưới */
+    .feedback-section {
+        margin-top: 50px;
+        padding-top: 30px;
+        border-top: 1px dashed rgba(255, 255, 255, 0.1);
+        text-align: center;
+    }
+    .feedback-section p {
+        font-size: 15px;
         color: var(--text-dim);
+        margin-bottom: 20px;
     }
-    
-    /* 1️⃣ LAYOUT 1 ẢNH NGANG VỚI NÚT LINK (Mục 1 & 2) */
-    .one-image-layout {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-        margin-top: 30px;
-    }
-    
-    .one-image-layout .main-button {
-        flex: 1 1 200px; 
-        max-width: 350px;
-    }
-
-    .one-image-layout .image-card {
-        flex: 1 1 200px; 
-        max-width: 400px; 
-        height: 180px; 
-        overflow: hidden;
-        border-radius: var(--radius);
-        box-shadow: 0 0 10px rgba(77,195,255,0.2); /* Shadow nhẹ cho ảnh */
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        transition: 0.3s;
-    }
-    
-    .one-image-layout .image-card img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; 
-        display: block;
-    }
-
-    /* 2️⃣ LAYOUT 4 ẢNH (Mục 3) */
-    .four-image-layout {
-        display: grid;
-        grid-template-columns: 1fr 1.5fr 1fr;
-        grid-template-rows: auto auto;
-        gap: 20px;
-        margin-top: 30px;
-        max-width: 750px; 
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .four-image-layout .image-card {
-        background: var(--bg-card);
-        border-radius: var(--radius);
-        box-shadow: 0 0 10px rgba(77,195,255,0.2);
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        transition: 0.3s;
-    }
-    
-    .four-image-layout .image-card img {
-        width: 100%;
-        height: 150px; 
-        object-fit: cover;
-        display: block;
-    }
-
-    .four-image-layout .main-button {
-        grid-area: 1 / 2 / 3 / 3; 
-        align-self: center;
-    }
-    .four-image-layout .image-card:nth-child(1) { grid-area: 1 / 1 / 2 / 2; }
-    .four-image-layout .image-card:nth-child(2) { grid-area: 1 / 3 / 2 / 4; }
-    .four-image-layout .image-card:nth-child(4) { grid-area: 2 / 1 / 3 / 2; }
-    .four-image-layout .image-card:nth-child(5) { grid-area: 2 / 3 / 3 / 4; }
-
-    /* Nút Chung Cho Cả 3 Layout */
-    .main-button a {
-        display: block;
-        padding: 20px 30px;
-        background: var(--primary-button); /* Dùng gradient */
-        color: var(--bg-dark); /* Chữ tối màu trên nền sáng */
+    .btn-feedback {
+        display: inline-block;
+        padding: 14px 35px;
+        background: var(--primary-button);
+        color: var(--bg-dark);
         text-decoration: none;
         border-radius: var(--radius);
         font-weight: 700;
-        font-size: 20px;
+        font-size: 16px;
+        letter-spacing: 0.5px;
         transition: 0.3s;
-        box-shadow: 0 4px 15px rgba(77, 195, 255, 0.4);
+        box-shadow: 0 4px 15px rgba(77, 195, 255, 0.3);
     }
-    
-    .main-button a:hover {
+    .btn-feedback:hover {
         background: linear-gradient(135deg, #69d4ff, #a07dff);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(77, 195, 255, 0.6);
-    }
-    
-    /* Hiệu ứng hover cho hình ảnh */
-    .image-card:hover {
-        transform: scale(1.03);
-        box-shadow: 0 0 20px rgba(77,195,255,0.4);
-        border-color: var(--neon-blue);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 22px rgba(77, 195, 255, 0.55);
     }
 
     /* 📱 MEDIA QUERY CHO THIẾT BỊ DI ĐỘNG */
     @media (max-width: 768px) {
-        h1 {
-            font-size: 32px;
-        }
-        .four-image-layout {
-            grid-template-columns: 1fr;
-            grid-template-rows: auto;
-            max-width: 400px;
-        }
-        .four-image-layout .image-card:nth-child(1) { grid-area: auto; }
-        .four-image-layout .image-card:nth-child(2) { grid-area: auto; }
-        .four-image-layout .image-card:nth-child(4) { grid-area: auto; }
-        .four-image-layout .image-card:nth-child(5) { grid-area: auto; }
-        .four-image-layout .main-button { 
-            grid-area: auto;
-            order: -1; /* Đẩy nút lên đầu */
-        }
+        .hero h1 { font-size: 34px; }
+        .hero p { font-size: 15px; }
+        .link-card { font-size: 15px; padding: 18px 22px; }
     }
-
-
 </style>
-
 </head>
 <body>
 
@@ -334,189 +209,60 @@
     <nav id="main-nav">
         <button class="menu-toggle close-btn" onclick="toggleMenu()">✕</button>
         <a href="index.html">TRANG CHỦ</a>
-        <a href="muc1.html" >THÔNG TIN</a>
+        <a href="muc1.html">THÔNG TIN</a>
         <a href="muc2.html">VAI TRÒ</a>
         <a href="muc3.html">NHỮNG SAI LẦM</a>
-        <a href="muc4.html"class="active">GIẢI PHÁP</a>
+        <a href="muc4.html" class="active">GIẢI PHÁP</a>
     </nav>
     
+    <section class="hero">
+        <h1>HỆ THỐNG GIẢI PHÁP</h1>
+        <p>Bấm chọn vào các giải pháp công nghệ dưới đây để truy cập và trải nghiệm trực tiếp hệ sinh thái hỗ trợ học tập.</p>
+    </section>
 
-<div class="container">
-    <h1>GIẢI PHÁP </h1>
-
-    <div class="link-list">
-        
-        <a id="toggle-content-1" class="link-card">
-            <span class="link-icon">📚</span>
-            Cẩm nang Chat GPT người bạn học thông minh
-        </a>
-
-        <a id="toggle-content-2" class="link-card"> 
-            <span class="link-icon">💡</span>
-            Góc tự học (Website hỗ trợ)
-        </a>
-        <a id="toggle-content-3" class="link-card"> 
-            <span class="link-icon">💬</span>
-            Góc tư vấn & hỗ trợ 
-        </a>
-
-    </div>
-</div>
-
-<div id="expanded-content-1" class="expanded-area" style="display: none;">
-    <h2>CẨM NANG CHAT GPT</h2>
-    <p style="font-size: 1.1em; color: var(--text-dim);">Truy cập cẩm nang hướng dẫn sử dụng ChatGPT hiệu quả.</p>
-    
-    <div class="one-image-layout">
-        
-        <div class="main-button">
-            <a href="https://online.fliphtml5.com/gkbeg/daaw/" target="_blank">
-                <span style="margin-right: 10px;">📖</span> 
-                ĐỌC CẨM NANG NGAY
-            </a>
-        </div>
-        
-        <div class="image-card">
-            <img src="https://i.postimg.cc/fR6hRq8t/Screenshot-2025-11-25-at-13-47-42.png" alt="Minh họa Cẩm nang">
-        </div>
-    </div>
-</div>
-
-<div id="expanded-content-2" class="expanded-area" style="display: none;">
-    <h2>GÓC TỰ HỌC </h2>
-    <p style="font-size: 1.1em; color: var(--text-dim);"></p>
-
-    <div class="four-image-layout">
-        
-        <div class="main-button">
-            <a href="https://nghiem241208-code.github.io/goc_hoc_tap_/" target="_blank">
-                <span style="margin-right: 10px;">🚀</span> 
-                TRUY CẬP WEBSITE TỰ HỌC
-            </a>
-        </div>
-        
-        <div class="image-card">
-            <img src="https://i.postimg.cc/tJpN9bKw/Screenshot_2025_11_25_at_12_38_53.png" alt="Minh họa 1">
-        </div>
-
-        <div class="image-card">
-            <img src="https://i.postimg.cc/3JDx3GBJ/Screenshot_2025_11-25_at_12_39_31.png" alt="Minh họa 2">
-        </div>
-
-        <div class="image-card">
-            <img src="https://i.postimg.cc/qgf0NmGY/Screenshot_2025_11_25_at_12_44_20.png" alt="Minh họa 3">
-        </div>
-
-        <div class="image-card">
-            <img src="https://i.postimg.cc/wBW11pRn/Screenshot_2025_11_25_at_12_50_09.png" alt="Minh họa 4">
-        </div>
-    </div>
-</div>
-
-<div id="expanded-content-3" class="expanded-area" style="display: none;">
-    <h2>GÓC TƯ VẤN & HỖ TRỢ</h2>
-    <p style="font-size: 1.1em; color: var(--text-dim);"></p>
-    
-    <div class="one-image-layout">
-        
-        <div class="main-button">
-            <a href="https://partyrock.aws/u/ChloeNguyen241208/rFVi9mpSP/Prompt-Coach-Tro-Thu-AI-Thong-Minh" target="_blank">
-                <span style="margin-right: 10px;">💬</span> 
-                TƯ VẤN NGAY
-            </a>
-        </div>
-        
-        <div class="image-card">
-            <img src="https://i.postimg.cc/283GQprW/Gemini-Generated-Image-2dd06d2dd06d2dd0.png" alt="Minh họa Góc tư vấn">
-        </div>
-    </div>
-</div>
-
-
-
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Cập nhật mapping để bao gồm cả 4 mục
-        const toggleButtons = {
-            'toggle-content-1': 'expanded-content-1',
-            'toggle-content-2': 'expanded-content-2',
-            'toggle-content-3': 'expanded-content-3', // Mục đã sửa lỗi
-            'toggle-content-4': 'expanded-content-4'  // Mục đã sửa lỗi
-        };
-
-        const contentAreas = document.querySelectorAll('.expanded-area');
-
-        function toggleContent(contentId) {
-            const content = document.getElementById(contentId);
+    <div class="container">
+        <!-- DANH SÁCH KHỐI LINK - NHẤP VÀO LÀ DI CHUYỂN TRỰC TIẾP SANG TRANG WEB ĐÍCH -->
+        <div class="link-list">
             
-            // Ẩn tất cả các khu vực nội dung khác
-            contentAreas.forEach(area => {
-                if (area.id !== contentId) {
-                    area.style.display = 'none';
-                }
-            });
+            <a href="https://online.fliphtml5.com/gkbeg/daaw/" target="_blank" class="link-card">
+                <div class="link-card-content">
+                    <span class="link-icon">📚</span>
+                    Cẩm nang Chat GPT người bạn học thông minh
+                </div>
+            </a>
 
-            // Chuyển đổi trạng thái hiển thị của khu vực hiện tại
-            if (content.style.display === 'none' || content.style.display === '') {
-                content.style.display = 'block';
-                // Cuộn xuống khu vực vừa được hiển thị
-                content.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            } else {
-                content.style.display = 'none';
-            }
-        }
+            <a href="https://nghiem241208-code.github.io/goc_hoc_tap_/" target="_blank" class="link-card"> 
+                <div class="link-card-content">
+                    <span class="link-icon">💡</span>
+                    Góc tự học (Website hỗ trợ)
+                </div>
+            </a>
 
-        // Gán sự kiện cho từng nút
-        for (const [buttonId, contentId] of Object.entries(toggleButtons)) {
-            const button = document.getElementById(buttonId);
-            if (button) {
-                 button.addEventListener('click', function(event) {
-                    event.preventDefault(); 
-                    toggleContent(contentId);
-                });
-            }
-        }
-    });
-</script>
+            <a href="https://partyrock.aws/u/ChloeNguyen241208/rFVi9mpSP/Prompt-Coach-Tro-Thu-AI-Thong-Minh" target="_blank" class="link-card"> 
+                <div class="link-card-content">
+                    <span class="link-icon">💬</span>
+                    Góc tư vấn & hỗ trợ (Prompt Coach)
+                </div>
+
+            </a>
+
+        </div>
+
+        <!-- KHU VỰC FORM GÓP Ý THÀNH VIÊN HOẶC ĐỘC GIẢ -->
+        <div class="feedback-section">
+            <p>Ý kiến đóng góp của bạn giúp chúng mình hoàn thiện ứng dụng tốt hơn mỗi ngày!</p>
+            <!-- ⚠️ Bạn nhớ thay link Google Form thực tế của bạn vào thuộc tính href dưới đây nhé -->
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdaThRQTpKEkeDSG2B1LsGihrsAjaPbaeiJka_Y5JdIdNnNvQ/viewform?usp=dialog" target="_blank" class="btn-feedback">
+                📩 ĐÓNG GÓP Ý KIẾN 
+            </a>
+        </div>
+    </div>
 
 <script>
     function toggleMenu() {
         const nav = document.getElementById('main-nav');
         nav.classList.toggle('open');
     }
-
-    function toggleAccordion(element) {
-        const allContents = document.querySelectorAll('.accordion-content');
-        const allHeaders = document.querySelectorAll('.accordion-header');
-        
-        const currentContent = element.nextElementSibling;
-        const currentIcon = element.querySelector('.accordion-icon');
-
-        // Đóng tất cả các accordion khác (trừ accordion hiện tại)
-        allHeaders.forEach(header => {
-            if (header !== element && header.classList.contains('active')) {
-                header.classList.remove('active');
-                header.nextElementSibling.classList.remove('open');
-                header.nextElementSibling.style.maxHeight = null; // Đặt lại chiều cao
-            }
-        });
-
-        // Mở/đóng accordion hiện tại
-        element.classList.toggle('active');
-
-        if (currentContent.style.maxHeight) {
-            // Đang mở, đóng lại
-            currentContent.style.maxHeight = null;
-            currentContent.classList.remove('open');
-        } else {
-            // Đang đóng, mở ra
-            currentContent.style.maxHeight = currentContent.scrollHeight + "px";
-            currentContent.classList.add('open');
-        }
-    }
 </script>
-
-
 </body>
 </html>
