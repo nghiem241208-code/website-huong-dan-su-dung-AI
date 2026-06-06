@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Trang thông tin về việc sử dụng AI đúng cách trong học tập - vai trò, sai lầm và giải pháp.">
-    <title>Những sai lầm khi lạm dụng AI</title>
-
+    <title>NHỮNG SAI LẦM KHI SỬ DỤNG AI</title>
 
 <style>
     /* ==================================== */
-    /*  STYLE B: AI MODERN (NEON GRADIENT)  */
-    /* (GIỮ NGUYÊN CSS TỪ CẤU TRÚC BẠN CUNG CẤP) */
+    /* STYLE B: AI MODERN (NEON GRADIENT)  */
+    /* (GIỮ NGUYÊN CSS GỐC CỦA BẠN)         */
     /* ==================================== */
     :root{
-        
         --bg-dark: #0d1731 ;
         --bg-card: #ba25a7 ;
         --neon-blue:#4dc3ff;
@@ -108,7 +106,7 @@
         padding:0 20px;
     }
     
-    /* 🛠️ CẤU TRÚC HAI CỘT SONG SONG */
+    /* CẤU TRÚC HAI CỘT */
     .two-column-layout{
         display:flex;
         gap:30px; 
@@ -127,7 +125,7 @@
         top: 80px; 
     }
     
-    /* === STYLE CHO INFO BOX (Trái) === */
+    /* INFO BOX (Trái) */
     .info-box{
         background:var(--gradient-card);
         padding:32px;
@@ -154,25 +152,8 @@
         margin-top:25px;
         margin-bottom:10px;
     }
-    .gemini-link{
-        display:inline-block;
-        margin-top:20px;
-        padding:12px 25px;
-        background:var(--gradient-hero);
-        color:var(--bg-dark);
-        text-decoration:none;
-        border-radius:8px;
-        font-weight:600;
-        transition:0.3s;
-        box-shadow:0 4px 15px rgba(77,195,255,0.4);
-    }
-    .gemini-link:hover{
-        background:linear-gradient(135deg, #69d4ff, #a07dff);
-        transform:translateY(-3px);
-        box-shadow:0 6px 20px rgba(77,195,255,0.6);
-    }
     
-    /* === STYLE CHO IMAGE CARDS (Phải) === */
+    /* IMAGE CARDS (Phải) */
     .image-card{
         background:var(--gradient-card);
         border-radius:var(--radius);
@@ -192,18 +173,16 @@
         font-size: 18px;
         margin-top: 5px;
     }
-    /* Đã thêm class cho ảnh để CSS dễ hơn */
     .card-image {
         width: 100%;
-        height: 250px; /* Chiều cao cố định cho ảnh đại diện */
-        object-fit: cover; /* Đảm bảo ảnh phủ hết khu vực mà không bị kéo giãn */
+        height: 250px; 
+        object-fit: cover; 
         border-radius: calc(var(--radius) - 5px);
         margin-bottom: 10px;
         display: block;
         border: 1px solid rgba(139, 91, 255, 0.2);
     }
     
-    /* STYLE CHO LINK BÊN DƯỚI ẢNH (Nút bấm) */
     .image-card .card-link {
         display: block;
         margin-top: 15px;
@@ -224,29 +203,136 @@
         box-shadow: 0 0 10px rgba(139, 91, 255, 0.7);
     }
 
-    footer{
-        margin-top:80px;
-        padding:30px;
-        text-align:center;
-        font-size:14px;
-        color:var(--text-dim);
-        border-top:1px solid rgba(255,255,255,0.05);
+    /* ==================================== */
+    /*        CSS CHO TRẮC NGHIỆM VUI       */
+    /* ==================================== */
+    .quiz-box {
+        background: rgba(255, 255, 255, 0.02);
+        border: 2px dashed rgba(77, 195, 255, 0.2);
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 30px;
+        position: relative;
+    }
+    .quiz-card {
+        display: none; 
+    }
+    .quiz-card.active {
+        display: block;
+        animation: slideUp 0.4s ease-out;
+    }
+    .quiz-progress {
+        font-size: 13px;
+        color: var(--neon-purple);
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+    }
+    .question-text {
+        font-size: 17px;
+        color: #ffffff;
+        margin-bottom: 20px;
+        font-weight: 500;
+    }
+    .quiz-options {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .quiz-btn {
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text-dim);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 14px 18px;
+        border-radius: 10px;
+        text-align: left;
+        cursor: pointer;
+        font-size: 15px;
+        transition: all 0.25s ease;
+    }
+    .quiz-btn:hover {
+        background: rgba(139, 91, 255, 0.15);
+        color: #ffffff;
+        border-color: var(--neon-purple);
+        transform: translateX(5px);
     }
     
-    /* Responsive: Xếp dọc trên màn hình nhỏ */
-    @media (max-width: 992px){
-        .two-column-layout {
-            flex-direction: column;
-        }
-        .images-right {
-            order: -1; 
-            position: static; 
-            width: 100%;
-            max-width: 100%;
-        }
-        .hero h1{
-            font-size:40px;
-        }
+    .feedback-box {
+        margin-top: 15px;
+        padding: 12px 15px;
+        border-radius: 8px;
+        font-size: 14px;
+        display: none;
+        animation: fadeIn 0.3s ease;
+        line-height: 1.5;
+    }
+    .feedback-success {
+        background: rgba(46, 204, 113, 0.15);
+        border: 1px solid #2ecc71;
+        color: #2ecc71;
+    }
+    .feedback-warning {
+        background: rgba(241, 196, 15, 0.15);
+        border: 1px solid #f1c40f;
+        color: #f1c40f;
+    }
+
+    .quiz-end-box {
+        display: none;
+        text-align: center;
+        padding: 10px 0;
+    }
+    .quiz-end-box h4 {
+        color: #2ecc71;
+        font-size: 22px;
+        margin: 0 0 10px 0;
+    }
+    .btn-restart {
+        background: var(--gradient-hero);
+        color: var(--bg-dark);
+        border: none;
+        padding: 10px 24px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 15px;
+        transition: 0.2s;
+    }
+    .btn-restart:hover { transform: scale(1.05); }
+
+    /* Khối chứa nội dung lý thuyết mở khóa */
+    .mistake-block {
+        display: none; 
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        background: rgba(255, 255, 255, 0.02);
+        border-left: 4px solid var(--neon-blue);
+    }
+    .mistake-block.active-now {
+        display: block;
+        animation: highlightReveal 0.5s ease-out forwards;
+    }
+    .mistake-block.show-final {
+        display: block;
+        border-left-color: var(--neon-purple);
+        margin-bottom: 15px;
+        animation: fadeIn 0.5s ease;
+    }
+    .mistake-block h3 {
+        margin-top: 0;
+    }
+    
+    @keyframes slideUp {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; } to { opacity: 1; }
+    }
+    @keyframes highlightReveal {
+        0% { opacity: 0; transform: scale(0.98); }
+        100% { opacity: 1; transform: scale(1); }
     }
 </style>
 </head>
@@ -275,53 +361,131 @@
         
         <div class="content-left">
             <div class="info-box">
-                <h2 id="sai-lam"> SAI LẦM TRONG HỌC TẬP VỚI AI</h2>
+                <h2 id="sai-lam">🧠 THỬ THÁCH NHẬN DIỆN BẢN THÂN</h2>
                 
                 <div class="user-content">
-                    <p>
-                        Việc sử dụng các công cụ AI không đúng cách có thể kìm hãm sự phát triển tư duy, dẫn đến kết quả học tập không như mong muốn và thiếu kỹ năng cần thiết trong tương lai.
+                    <p id="quiz-intro-text">
+                        Đố bạn xử lý được 5 tình huống "khó đỡ" khi dùng AI học tập dưới đây. Hãy chọn thật lòng để mở khóa bí kíp nhé!
                     </p>
 
-                    <h3>Sai lầm 1: Chưa biết đặt câu hỏi </h3>
-                    <p>
-                        Nhiều học sinh chưa biết cách đặt câu hỏi rõ ràng khiến AI trả lời sai ý, thiếu thông tin hoặc không đúng mong muốn. Khi câu hỏi mơ hồ, câu trả lời thường chung chung và không hỗ trợ được việc học.
-                    </p>
+                    <!-- VÙNG TRẮC NGHIỆM -->
+                    <div class="quiz-box" id="quiz-wrapper">
+                        
+                        <!-- CÂU 1 -->
+                        <div class="quiz-card active" id="q1">
+                            <div class="quiz-progress">TÌNH HUỐNG 1 / 5</div>
+                            <p class="question-text"><strong>Nhờ AI gánh team:</strong> Khi muốn AI chỉ bài Sóng cơ (Vật Lý), bạn sẽ ra lệnh thế nào?</p>
+                            <div class="quiz-options" id="opt1">
+                                <button class="quiz-btn" onclick="checkAnswer(1, 'A', 'Chưa hợp lý')">A. Viết cụt lủn: "Làm bài sóng cơ đi" - Nhanh gọn lẹ!</button>
+                                <button class="quiz-btn" onclick="checkAnswer(1, 'B', 'Hợp lý')">B. Gõ đầy đủ: "Giải thích giúp mình lý thuyết sóng cơ lớp 12 và cho ví dụ."</button>
+                            </div>
+                            <div class="feedback-box" id="fb1"></div>
+                        </div>
 
-                    <h3>Sai lầm 2: Học sinh phụ thuộc vào AI</h3>
-                    <p>
-                        Một số học sinh sử dụng AI quá mức, để công cụ làm thay toàn bộ bài tập thay vì tự suy nghĩ hoặc soạn thảo nội dung mà không tìm hiểu. Điều này làm giảm khả năng tư duy độc lập và khiến việc học không còn hiệu quả.
-                    </p>
-                    
-                    <h3>Sai lầm 3: Không kiểm chứng thông tin </h3>
-                    <p>
-                        Nhiều học sinh tin tuyệt đối vào câu trả lời của AI mà không kiểm tra lại thông tin, dẫn đến sử dụng dữ liệu sai hoặc hiểu nhầm kiến thức.
-                    </p>
+                        <!-- CÂU 2 -->
+                        <div class="quiz-card" id="q2">
+                            <div class="quiz-progress">TÌNH HUỐNG 2 / 5</div>
+                            <p class="question-text"><strong>Bài tập quá tải:</strong> Gặp một bài toán hoặc bài văn quá hóc búa, phương án của bạn là:</p>
+                            <div class="quiz-options" id="opt2">
+                                <button class="quiz-btn" onclick="checkAnswer(2, 'A', 'Chưa hợp lý')">A. Copy đề thả vào AI, lấy luôn đáp án đem nộp. Khỏi nghĩ cho mệt đầu!</button>
+                                <button class="quiz-btn" onclick="checkAnswer(2, 'B', 'Hợp lý')">B. Tự nháp trước, bí quá mới hỏi AI gợi ý từng bước hoặc giải thích công thức.</button>
+                            </div>
+                            <div class="feedback-box" id="fb2"></div>
+                        </div>
 
-                    <h3>Sai lầm 4: Học sinh không cập nhật kiến thức cho AI</h3>
-                    <p>
-                        AI được huấn luyện dựa trên dữ liệu đến một thời điểm nhất định và không tự động cập nhật kiến thức mới. Nếu học sinh không chủ động bổ sung thông tin hoặc đặt câu hỏi kèm ngữ cảnh mới, công cụ có thể trả lời lỗi thời hoặc thiếu chính xác.
-                    </p>
-                    
-                    <h3>Sai lầm 5: Đạo văn</h3>
-                    <p>
-                        Một số học sinh sao chép trực tiếp nội dung AI mà không trích dẫn, dẫn đến đạo văn – vi phạm nguyên tắc học tập trung thực và kìm hãm khả năng sáng tạo.
-                    </p>
+                        <!-- CÂU 3 -->
+                        <div class="quiz-card" id="q3">
+                            <div class="quiz-progress">TÌNH HUỐNG 3 / 5</div>
+                            <p class="question-text"><strong>Sự thật hay lời nói dối:</strong> AI vừa xuất một đoạn văn lịch sử cực kỳ mượt mà, bạn liền:</p>
+                            <div class="quiz-options" id="opt3">
+                                <button class="quiz-btn" onclick="checkAnswer(3, 'A', 'Chưa hợp lý')">A. Tin sái cổ! AI "vạn năng" thế này làm sao mà sai sót được.</button>
+                                <button class="quiz-btn" onclick="checkAnswer(3, 'B', 'Hợp lý')">B. Khoan vội tin, mở sách giáo khoa hoặc tra Google lại xem AI có "bốc phét" không.</button>
+                            </div>
+                            <div class="feedback-box" id="fb3"></div>
+                        </div>
+
+                        <!-- CÂU 4 -->
+                        <div class="quiz-card" id="q4">
+                            <div class="quiz-progress">TÌNH HUỐNG 4 / 5</div>
+                            <p class="question-text"><strong>Bắt kịp xu hướng:</strong> Muốn hỏi AI về một sự kiện hot trend mới diễn ra tuần này, bạn làm sao?</p>
+                            <div class="quiz-options" id="opt4">
+                                <button class="quiz-btn" onclick="checkAnswer(4, 'A', 'Chưa hợp lý')">A. Cứ hỏi bừa, nghĩ rằng AI sống trên mạng nên cái gì cũng biết ngay lập tức.</button>
+                                <button class="quiz-btn" onclick="checkAnswer(4, 'B', 'Hợp lý')">B. Gửi kèm thông tin bài báo mới cho AI rồi nhờ nó phân tích, vì biết dữ liệu AI có giới hạn thời gian.</button>
+                            </div>
+                            <div class="feedback-box" id="fb4"></div>
+                        </div>
+
+                        <!-- CÂU 5 -->
+                        <div class="quiz-card" id="q5">
+                            <div class="quiz-progress">TÌNH HUỐNG 5 / 5</div>
+                            <p class="question-text"><strong>Copy và Paste:</strong> Bài tiểu luận văn học do AI viết quá hay, bạn định xử lý thế nào?</p>
+                            <div class="quiz-options" id="opt5">
+                                <button class="quiz-btn" onclick="checkAnswer(5, 'A', 'Chưa hợp lý')">A. Copy nguyên xi đem nộp, AI viết cho mình thì bản quyền là của mình chứ lo gì!</button>
+                                <button class="quiz-btn" onclick="checkAnswer(5, 'B', 'Hợp lý')">B. Dùng làm ý tưởng tham khảo, sau đó tự viết lại bằng giọng văn mộc mạc của chính mình.</button>
+                            </div>
+                            <div class="feedback-box" id="fb5"></div>
+                        </div>
+
+                        <!-- TRẠNG THÁI HOÀN THÀNH -->
+                        <div class="quiz-end-box" id="quiz-end">
+                            <h4>🎉 Phá Đảo Thử Thách Thành Công!</h4>
+                            <p style="font-size: 15px; color: var(--text-dim);" id="final-score-text"></p>
+                            <button class="btn-restart" onclick="resetQuiz()">Làm lại khảo sát</button>
+                        </div>
+
+                    </div>
+
+
+                    <!-- VÙNG NỘI DUNG SAI LẦM SẼ HIỆN DIỄN CUỐN CHIẾU -->
+                    <div id="mistakes-container">
+                        
+                        <div class="mistake-block" id="mistake-1">
+                            <h3>❌ Sai lầm 1: Chưa biết đặt câu hỏi</h3>
+                            <p>
+                                Nhiều học sinh chưa biết cách đặt câu hỏi rõ ràng khiến AI trả lời sai ý, thiếu thông tin hoặc không đúng mong muốn. Khi câu hỏi mơ hồ, câu trả lời thường chung chung và không hỗ trợ được việc học.
+                            </p>
+                        </div>
+
+                        <div class="mistake-block" id="mistake-2">
+                            <h3>❌ Sai lầm 2: Học sinh phụ thuộc vào AI</h3>
+                            <p>
+                                Một số học sinh sử dụng AI quá mức, để công cụ làm thay toàn bộ bài tập thay vì tự suy nghĩ hoặc soạn thảo nội dung mà không tìm hiểu. Điều này làm giảm khả năng tư duy độc lập và khiến việc học không còn hiệu quả.
+                            </p>
+                        </div>
+                        
+                        <div class="mistake-block" id="mistake-3">
+                            <h3>❌ Sai lầm 3: Không kiểm chứng thông tin</h3>
+                            <p>
+                                Nhiều học sinh tin tuyệt đối vào câu trả lời của AI mà không kiểm tra lại thông tin, dẫn đến sử dụng dữ liệu sai hoặc hiểu nhầm kiến thức.
+                            </p>
+                        </div>
+
+                        <div class="mistake-block" id="mistake-4">
+                            <h3>❌ Sai lầm 4: Không cập nhật ngữ cảnh/kiến thức mới cho AI</h3>
+                            <p>
+                                AI được huấn luyện dựa trên dữ liệu đến một thời điểm nhất định và không tự động cập nhật kiến thức mới hoàn toàn theo thời gian thực. Nếu học sinh không chủ động bổ sung thông tin hoặc đặt câu hỏi kèm ngữ cảnh mới, công cụ có thể trả lời lỗi thời hoặc thiếu chính xác.
+                            </p>
+                        </div>
+                        
+                        <div class="mistake-block" id="mistake-5">
+                            <h3>❌ Sai lầm 5: Đạo văn (Xem AI là máy chép bài)</h3>
+                            <p>
+                                Một số học sinh sao chép trực tiếp nội dung AI mà không trích dẫn hoặc chỉnh sửa, dẫn đến đạo văn – vi phạm nguyên tắc học tập trung thực và kìm hãm khả năng sáng tạo của chính mình.
+                            </p>
+                        </div>
+
+                    </div>
 
                 </div>
             </div>
         </div>
         
         <div class="images-right">
-            
             <div class="image-card">
                 <h3>🎬 VIDEO: Để Không Phụ Thuộc AI</h3>
-                
-                
                 <img src="https://i.postimg.cc/251Z1mDK/Gemini-Generated-Image-hj2hozhj2hozhj2h.png" alt="Ảnh đại diện video hướng dẫn AI" class="card-image">
-                
                 <a href="https://www.youtube.com/watch?v=pJAQe2p97xs" target="_blank" class="card-link">XEM VIDEO </a>
             </div>
-            
         </div>
         
     </div>
@@ -331,6 +495,110 @@
     function toggleMenu() {
         const nav = document.getElementById('main-nav');
         nav.classList.toggle('open');
+    }
+
+    const jokes = {
+        1: {
+            success: "🌟 <b>Chuẩn không cần chỉnh!</b> Viết câu lệnh rõ ràng giống như đưa bản đồ cho tài xế vậy, AI sẽ chở bạn đến đúng bến kiến thức mười điểm!",
+            fail: "😅 <b>Ối giời ơi!</b> Hỏi ngắn thế này thì AI nó cũng 'bó tay chấm com' trả lời chung chung thôi bạn ơi. Hãy xem lỗi số 1 ở dưới để rút kinh nghiệm nhé!"
+        },
+        2: {
+            success: "😎 <b>Quá xuất sắc!</b> Lười tư duy là 'kẻ thù' của sự sáng tạo. Bạn dùng AI làm người dẫn đường chứ không làm người làm hộ là cực kỳ thông minh!",
+            fail: "👻 <b>Cảnh báo 'ông ba bị' phụ thuộc!</b> Chép luôn thế này thì bộ não của chúng mình sẽ bị 'rỉ sét' mất thôi. Xem ngay tác hại ở Sai lầm 2 phía dưới nha."
+        },
+        3: {
+            success: "🧐 <b>Bộ não cú vọ tinh tường!</b> Đúng vậy, AI đôi khi rất hay 'nói dối một cách tự tin' (ảo tưởng), tỉnh táo kiểm tra lại là thượng sách!",
+            fail: "🤭 <b>Tin người quá đáng rồi nè!</b> AI thỉnh thoảng cũng 'mơ màng' lắm đó, đừng để nó dắt mũi nha bạn ơi. Đọc ngay lỗi số 3 bên dưới để tỉnh táo lại nào!"
+        },
+        4: {
+            success: "🧠 <b>Bậc thầy công nghệ là đây!</b> Hiểu rõ giới hạn dữ liệu của AI chứng tỏ bạn nghiên cứu rất kỹ. Quá tuyệt vời!",
+            fail: "⏳ <b>Đi lùi thời gian rồi!</b> Rất nhiều AI bị giới hạn mốc thời gian huấn luyện đó nha, hỏi trend mới mà không mớm trước dữ liệu là nó 'phán đại' đó. Xem lỗi số 4 nha!"
+        },
+        5: {
+            success: "🎭 <b>Một tràng pháo tay cho sự trung thực!</b> Biến kiến thức AI thành giọng văn của mình mới gọi là đỉnh cao của việc tự học.",
+            fail: "🚨 <b>Tín hiệu ét-ô-ét (SOS)!</b> Thầy cô bây giờ có quét công cụ chống đạo văn AI đấy nhé, chép nguyên văn là 'toang' thật sự đó. Xem cảnh báo ở lỗi 5 ngay!"
+        }
+    };
+
+    let totalCorrect = 0;
+
+    function checkAnswer(questionNum, selectedOption, type) {
+        const feedbackBox = document.getElementById(`fb${questionNum}`);
+        const optionsContainer = document.getElementById(`opt${questionNum}`);
+        
+        // Khóa nút bấm
+        const buttons = optionsContainer.getElementsByTagName('button');
+        for (let btn of buttons) { btn.disabled = true; }
+
+        // Hiện feedback vui nhộn
+        feedbackBox.style.display = "block";
+        if (type === 'Hợp lý') {
+            totalCorrect++;
+            feedbackBox.className = "feedback-box feedback-success";
+            feedbackBox.innerHTML = jokes[questionNum].success;
+        } else {
+            feedbackBox.className = "feedback-box feedback-warning";
+            feedbackBox.innerHTML = jokes[questionNum].fail;
+        }
+
+        // Ẩn khối sai lầm cũ đi (nếu có) và CHỈ bật duy nhất khối sai lầm hiện tại lên
+        for (let i = 1; i <= 5; i++) {
+            document.getElementById(`mistake-${i}`).classList.remove('active-now');
+        }
+        document.getElementById(`mistake-${questionNum}`).classList.add('active-now');
+
+        // Tự động chuyển câu hoặc tổng kết sau 2.2 giây (để họ vừa kịp đọc lời giải thích)
+        setTimeout(function() {
+            document.getElementById(`q${questionNum}`).classList.remove('active');
+            
+            // Ẩn khối lý thuyết hiện tại đi để chuẩn bị cho câu tiếp theo
+            document.getElementById(`mistake-${questionNum}`).classList.remove('active-now');
+
+            const nextNum = questionNum + 1;
+            const nextCard = document.getElementById(`q${nextNum}`);
+            
+            if (nextCard) {
+                nextCard.classList.add('active');
+            } else {
+                // ĐÃ TRẢ LỜI XONG HẾT 5 CÂU -> HIỂN THỊ TỔNG HỢP TOÀN BỘ 5 SAI LẦM
+                document.getElementById('quiz-end').style.display = "block";
+                document.getElementById('quiz-intro-text').innerText = "Cảm ơn bạn đã trải nghiệm! Dưới đây là bảng tổng hợp đầy đủ về 5 sai lầm phổ biến khi dùng AI để bạn ôn tập lại:";
+                
+                // Kích hoạt hiển thị đồng thời cả 5 khối sai lầm ở cuối cùng
+                for (let i = 1; i <= 5; i++) {
+                    document.getElementById(`mistake-${i}`).classList.add('show-final');
+                }
+
+                const scoreText = document.getElementById('final-score-text');
+                if(totalCorrect === 5) {
+                    scoreText.innerHTML = "🏆 <b>Điểm số: 5/5 - Bạn là Kẻ Hủy Diệt Sai Lầm!</b> Bạn dùng AI siêu đỉnh, xứng đáng làm idol giới trẻ về tự học!";
+                } else if(totalCorrect >= 3) {
+                    scoreText.innerHTML = "🌤️ <b>Điểm số: " + totalCorrect + "/5 - Người dùng hệ Tỉnh Táo!</b> Bạn dùng AI khá ổn, chỉ cần né thêm vài hạt sạn lỗi lầm ở dưới nữa là hoàn hảo.";
+                } else {
+                    scoreText.innerHTML = "🌧️ <b>Điểm số: " + totalCorrect + "/5 - Tín đồ hệ Dựa Dẫm!</b> Ui ui, bạn đang bị AI 'thao túng tâm lý' hơi nhiều rồi đó nha. Hãy đọc kỹ 5 sai lầm bên dưới để 'quay xe' kịp thời!";
+                }
+            }
+        }, 2200); // Tăng lên 2.2 giây một chút để trải nghiệm không bị quá vội vàng
+    }
+
+    function resetQuiz() {
+        totalCorrect = 0;
+        document.getElementById('quiz-end').style.display = "none";
+        document.getElementById('q1').classList.add('active');
+        document.getElementById('quiz-intro-text').innerText = "Đố bạn xử lý được 5 tình huống khó đỡ khi dùng AI học tập dưới đây. Hãy chọn thật lòng để mở khóa bí kíp nhé!";
+        
+        for (let i = 1; i <= 5; i++) {
+            const block = document.getElementById(`mistake-${i}`);
+            block.classList.remove('active-now', 'show-final');
+            
+            const fb = document.getElementById(`fb${i}`);
+            fb.style.display = "none";
+            fb.innerHTML = "";
+            
+            const buttons = document.getElementById(`opt${i}`).getElementsByTagName('button');
+            for (let btn of buttons) { btn.disabled = false; }
+        }
+        document.getElementById('q1').classList.add('active');
     }
 </script>
 </body>
